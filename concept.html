@@ -154,6 +154,47 @@
       font-size: 0.85rem;
     }
 
+    .drive {
+      margin: 1.6rem 0 0;
+      padding: 1.3rem 0 0.2rem;
+    }
+
+    .drive h2 {
+      margin: 0.35rem 0 0.6rem;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .drive .lead {
+      margin: 0 0 1.1rem;
+      max-width: 40rem;
+      color: var(--green);
+    }
+
+    .parts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .parts li {
+      padding: 0.9rem 1rem 1rem;
+      background: var(--sheet);
+      border: 1px solid var(--line);
+    }
+
+    .parts strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-family: "Iowan Old Style", Palatino, Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .parts span { color: var(--muted); font-size: 0.95rem; }
+
     @media (max-width: 860px) {
       .sheet {
         grid-template-columns: 1fr;
@@ -168,6 +209,7 @@
 
       .note.left, .n1, .n2, .n3, .n4 { text-align: left; padding: 0; }
       .plan { order: -1; }
+      .parts { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -326,6 +368,38 @@
         <span>Orange Pi Zero 3 · POST</span>
       </div>
     </div>
+
+    <section class="drive">
+      <p class="eyebrow">Drive</p>
+      <h2>The Orange Pi decides. It does not power anything.</h2>
+      <p class="lead">One Zero 3 runs the loop and posts every reading. Pumps and the LED bar sit on their own 12 V supply. The board only switches them, through chips, not through its own pins.</p>
+      <ul class="parts">
+        <li>
+          <strong>Light</strong>
+          <span>A PCA9685 on I2C dims the bar. If the bay gets too warm, that channel backs off.</span>
+        </li>
+        <li>
+          <strong>Water</strong>
+          <span>A 12 V peristaltic pump, about 80–150 ml/min, up to the drip ring. Moisture comes from a capacitive probe on an ADS1115, same I2C bus. A float switch on one GPIO stops a dry run. Dose by time, then wait and read again.</span>
+        </li>
+        <li>
+          <strong>A and B</strong>
+          <span>Two slower 12 V peristaltic pumps, about 10–30 ml/min. Each tees into the water line with a check valve. Pulse A when nitrogen is short, B when phosphorus or potassium is short. No pulse when the soil is already in range.</span>
+        </li>
+        <li>
+          <strong>NPK</strong>
+          <span>The three-prong probe is RS485 Modbus, read through a USB–RS485 adapter. A few times a day, not in a tight loop. The pump time is the regulation. The probe only decides whether a dose is due.</span>
+        </li>
+        <li>
+          <strong>Pins</strong>
+          <span>Four I2C wires for the PCA9685 and the ADS1115. One USB port for the probe. A GPIO for the float switch, and one for temperature. The header UART stays free.</span>
+        </li>
+        <li>
+          <strong>Software</strong>
+          <span>Python on Armbian. Pump pulses are seconds long, so Linux timing is enough. Each reading and each dose is a POST to the main server.</span>
+        </li>
+      </ul>
+    </section>
 
     <footer>The cabinet acts on its own. The record lives on the main server.</footer>
   </div>
