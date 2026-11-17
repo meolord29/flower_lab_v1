@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flower Lab system diagram: one plant, peristaltic pumps, an Orange Pi Zero 3, and a later camera that runs YOLO for leaf color and bloom tracking.">
+  <meta name="description" content="Flower Lab is a tabletop cabinet for one plant. It lights the day, waters when the soil is dry, and feeds only when the soil is short.">
   <title>Flower Lab</title>
   <style>
     :root {
@@ -22,18 +22,18 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(1000px 480px at 80% -10%, #efe4cf 0%, transparent 55%),
+        radial-gradient(1100px 520px at 70% -12%, #efe4cf 0%, transparent 58%),
         var(--paper);
       font-family: "Avenir Next", "Avenir", "Segoe UI", sans-serif;
-      font-size: 1.02rem;
-      line-height: 1.45;
+      font-size: 1.05rem;
+      line-height: 1.5;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
       font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
       font-weight: 500;
       letter-spacing: -0.03em;
-      line-height: 1;
+      line-height: 1.02;
     }
 
     .wrap {
@@ -45,7 +45,7 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding: 1.2rem 0 0.7rem;
+      padding: 1.2rem 0 0.4rem;
     }
 
     .brand { display: flex; align-items: center; gap: 0.5rem; }
@@ -58,14 +58,22 @@
       text-transform: uppercase;
     }
 
+    h1 {
+      margin: 0.4rem 0 0.6rem;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      max-width: 11ch;
+    }
+
     .intro {
-      margin: 0 0 1rem;
-      max-width: 40rem;
+      max-width: 36rem;
+      margin: 0 0 1.2rem;
       color: var(--green);
+      font-size: 1.15rem;
     }
 
     .sheet {
-      padding: 0.8rem;
+      margin: 0;
+      padding: 0.6rem 0.6rem 0.9rem;
       background: var(--sheet);
       border: 1px solid var(--line);
       outline: 1px solid var(--line);
@@ -73,142 +81,52 @@
       overflow-x: auto;
     }
 
-    .drawing { width: 100%; min-width: 980px; height: auto; display: block; }
-
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 1.4rem;
-      margin: 0.8rem 0 0;
-      padding: 0;
-      list-style: none;
-      color: var(--muted);
-      font-size: 0.85rem;
+    .drawing {
+      width: 100%;
+      min-width: 920px;
+      height: auto;
+      display: block;
     }
-
-    .legend i {
-      display: inline-block;
-      width: 1.4rem;
-      height: 0;
-      border-top-width: 3px;
-      border-top-style: solid;
-      margin-right: 0.4rem;
-      vertical-align: middle;
-    }
-
-    .fluid { border-top-color: #3d7f96; }
-    .power { border-top-color: #c4623e; }
-    .signal { border-top-color: #9a7340; border-top-style: dashed; }
-    .logic { border-top-color: #2f6b46; }
 
     figcaption {
-      margin: 0.7rem 0 0;
+      margin: 0.55rem 0.3rem 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
-    footer {
-      padding: 1.2rem 0 1.6rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    footer a, nav a { color: inherit; }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 1.1rem;
-      margin: 0 0 1.4rem;
-      padding: 0;
-    }
-
-    nav a {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--muted);
-    }
-
-    h1 {
-      margin: 0.2rem 0 0.7rem;
-      font-size: clamp(2.6rem, 6vw, 4.4rem);
-      max-width: 12ch;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.45rem;
-      color: var(--brass);
-      font-size: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    section { padding: 2.4rem 0 0.2rem; }
-
-    section h2 {
-      margin: 0 0 0.8rem;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-    }
-
-    .lead {
-      max-width: 40rem;
-      margin: 0 0 1.1rem;
-      color: var(--green);
-    }
-
-    .cards, .split {
+    .jobs {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.8rem;
+      margin: 1.3rem 0 0.4rem;
     }
 
-    .card, .table-wrap {
-      background: var(--sheet);
-      border: 1px solid var(--line);
-      padding: 1rem 1.05rem 1.1rem;
+    .job {
+      padding-top: 0.7rem;
+      border-top: 1px solid var(--ink);
     }
 
-    .card h3 {
-      margin: 0 0 0.4rem;
-      font-family: "Iowan Old Style", Palatino, Georgia, serif;
-      font-size: 1.45rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
+    .job h2 {
+      margin: 0 0 0.35rem;
+      font-size: 1.55rem;
     }
 
-    .card p, .prose p { margin: 0 0 0.7rem; }
-    .card p:last-child, .prose p:last-child { margin-bottom: 0; }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    .job p {
+      margin: 0;
+      color: var(--muted);
       font-size: 0.95rem;
     }
 
-    th, td {
-      text-align: left;
-      vertical-align: top;
-      padding: 0.45rem 0.6rem 0.45rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    th {
+    footer {
+      padding: 1.4rem 0 1.8rem;
       color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 0.85rem;
     }
 
-    code {
-      font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
-      font-size: 0.86em;
-    }
+    footer a { color: inherit; }
 
     @media (max-width: 800px) {
-      .cards, .split { grid-template-columns: 1fr; }
+      .jobs { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -222,347 +140,200 @@
         </svg>
         Flower Lab
       </div>
-      <p class="meta">Product</p>
+      <p class="meta">On the table</p>
     </header>
-    <h1>A cabinet for one plant.</h1>
-    <p class="intro">It keeps the light, waters when the soil is dry, and doses A or B only when nitrogen, phosphorus, or potassium is short. An Orange Pi Zero 3 decides. The main server only collects.</p>
-    <nav>
-      <a href="#diagram">Diagram</a>
-      <a href="#jobs">Jobs</a>
-      <a href="#control">Control</a>
-      <a href="#records">Records</a>
-      <a href="#api">API</a>
-      <a href="#later">Later</a>
-    </nav>
 
-    <figure class="sheet" id="diagram">
-      <svg class="drawing" viewBox="0 0 1240 860" role="img" aria-labelledby="dTitle dDesc">
-        <title id="dTitle">Flower Lab system diagram</title>
-        <desc id="dDesc">A plant in a pot, fed by three peristaltic pumps through one drip line. An Orange Pi Zero 3 reads moisture on an ADS1115, NPK over USB-RS485, and a float and temperature on GPIO. A PCA9685 times a MOSFET board that switches a separate 12 volt supply. Later, a CSI camera on the same board runs a small YOLO model to track leaf color and bloom.</desc>
+    <h1>One plant, in a box on the table.</h1>
+    <p class="intro">The hood keeps the day. The soil asks for water. Feed is added only when the pot is short, and only into water that is already on its way up.</p>
 
-        <rect x="16" y="16" width="360" height="700" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
-        <rect x="400" y="16" width="360" height="700" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
-        <rect x="784" y="16" width="440" height="470" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
-        <rect x="784" y="504" width="440" height="236" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
+    <figure class="sheet">
+      <svg class="drawing" viewBox="0 0 1200 860" role="img" aria-labelledby="lookTitle lookDesc">
+        <title id="lookTitle">Flower Lab cabinet on a table</title>
+        <desc id="lookDesc">A compact cabinet sitting on a wooden table. A clear front shows one flowering plant, a light hood, a drip ring, probes in the soil, and three bottles in the base.</desc>
+        <defs>
+          <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e4d2b4"/>
+            <stop offset="1" stop-color="#c9ae86"/>
+          </linearGradient>
+          <linearGradient id="woodEdge" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#b08968"/>
+            <stop offset="1" stop-color="#8d6848"/>
+          </linearGradient>
+          <linearGradient id="pot" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#d88862"/>
+            <stop offset="1" stop-color="#a34c30"/>
+          </linearGradient>
+          <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.2"/>
+            <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.03"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0.12"/>
+          </linearGradient>
+          <radialGradient id="glow" cx="50%" cy="30%" r="65%">
+            <stop offset="0" stop-color="#f8e7b0" stop-opacity="0.95"/>
+            <stop offset="1" stop-color="#f8e7b0" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="shadow" x="-20%" y="-10%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#1b2c24" flood-opacity="0.16"/>
+          </filter>
+        </defs>
 
-        <g font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="22" fill="#1b2c24">
-          <text x="36" y="48">Wet side</text>
-          <text x="420" y="48">Plant</text>
-          <text x="804" y="48">Dry side</text>
-          <text x="804" y="536">Main server</text>
+        <rect x="0" y="0" width="1200" height="620" fill="#f6f1e8"/>
+        <rect x="0" y="560" width="1200" height="300" fill="#f3eee4"/>
+
+        <!-- wall and table -->
+        <line x1="0" y1="560" x2="1200" y2="560" stroke="#e4dccb"/>
+        <polygon points="40,590 1160,590 1100,730 100,730" fill="url(#wood)"/>
+        <polygon points="100,730 1100,730 1072,768 128,768" fill="url(#woodEdge)"/>
+        <g stroke="#a68456" stroke-width="1" opacity="0.35">
+          <path d="M80 620 H1120"/>
+          <path d="M90 650 H1110"/>
+          <path d="M110 680 H1090"/>
+        </g>
+        <rect x="150" y="768" width="28" height="70" fill="#8d6848"/>
+        <rect x="1022" y="768" width="28" height="70" fill="#8d6848"/>
+        <ellipse cx="600" cy="612" rx="250" ry="16" fill="#1b2c24" opacity="0.08"/>
+
+        <g filter="url(#shadow)">
+          <!-- top and side of the cabinet -->
+          <polygon points="318,168 742,168 828,118 404,118" fill="#4a6556"/>
+          <polygon points="742,168 828,118 828,612 742,662" fill="#24362c"/>
+          <rect x="318" y="168" width="424" height="494" fill="#31483d"/>
         </g>
 
-        <!-- bottles -->
-        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="12" fill="#1b2c24">
-          <rect x="40" y="78" width="84" height="108" rx="6" fill="#d5e6ee" stroke="#8eb4c4"/>
-          <rect x="66" y="66" width="32" height="16" rx="2" fill="#6d7f74"/>
-          <text x="62" y="204">Water</text>
-          <circle cx="82" cy="150" r="7" fill="none" stroke="#c4623e" stroke-width="1.6"/>
-          <line x1="82" y1="150" x2="108" y2="132" stroke="#c4623e" stroke-width="1.6"/>
-          <text x="40" y="222" fill="#5c6b62">float · GPIO</text>
+        <!-- side panel, closed, dry -->
+        <polygon points="754,188 812,156 812,590 754,622" fill="#2a3f34"/>
+        <polygon points="768,230 800,210 800,560 768,580" fill="#24362c"/>
 
-          <rect x="154" y="78" width="84" height="108" rx="6" fill="#f3e2b4" stroke="#d7b36a"/>
-          <rect x="180" y="66" width="32" height="16" rx="2" fill="#6d7f74"/>
-          <text x="186" y="204">A</text>
-
-          <rect x="268" y="78" width="84" height="108" rx="6" fill="#e4efc8" stroke="#b7c98a"/>
-          <rect x="294" y="66" width="32" height="16" rx="2" fill="#6d7f74"/>
-          <text x="300" y="204">B</text>
-        </g>
-
-        <!-- pumps -->
-        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="11" fill="#1b2c24">
-          <rect x="46" y="248" width="72" height="40" rx="4" fill="#4e6358"/>
-          <rect x="160" y="248" width="72" height="40" rx="4" fill="#4e6358"/>
-          <rect x="274" y="248" width="72" height="40" rx="4" fill="#4e6358"/>
-          <circle cx="82" cy="268" r="8" fill="#c9d4cc"/>
-          <circle cx="196" cy="268" r="8" fill="#c9d4cc"/>
-          <circle cx="310" cy="268" r="8" fill="#c9d4cc"/>
-          <text x="74" y="273" fill="#1b2c24" font-size="12">W</text>
-          <text x="188" y="273" fill="#1b2c24" font-size="12">A</text>
-          <text x="302" y="273" fill="#1b2c24" font-size="12">B</text>
-          <text x="40" y="328" fill="#5c6b62">80–150 ml/min</text>
-          <text x="158" y="328" fill="#5c6b62">10–30 ml/min</text>
-          <text x="272" y="328" fill="#5c6b62">10–30 ml/min</text>
-          <text x="62" y="344" fill="#9a7340">ch.1</text>
-          <text x="176" y="344" fill="#9a7340">ch.2</text>
-          <text x="290" y="344" fill="#9a7340">ch.3</text>
-        </g>
-
-        <!-- bottle to pump -->
-        <g stroke="#3d7f96" stroke-width="2" fill="none">
-          <path d="M82 186 V248"/>
-          <path d="M196 186 V248"/>
-          <path d="M310 186 V248"/>
-        </g>
-
-        <!-- check valves on A and B only, then manifold -->
-        <g stroke="#3d7f96" stroke-width="2" fill="none">
-          <path d="M82 288 V430"/>
-          <path d="M196 288 V364"/>
-          <path d="M196 388 V430"/>
-          <path d="M310 288 V364"/>
-          <path d="M310 388 V430"/>
-          <path d="M82 430 H360"/>
-        </g>
-        <g fill="#3d7f96">
-          <polygon points="188,364 204,364 196,378"/>
-          <rect x="188" y="378" width="16" height="3"/>
-          <polygon points="302,364 318,364 310,378"/>
-          <rect x="302" y="378" width="16" height="3"/>
-          <circle cx="82" cy="430" r="3.5"/>
-          <circle cx="196" cy="430" r="3.5"/>
-          <circle cx="310" cy="430" r="3.5"/>
-        </g>
-        <text x="168" y="404" fill="#5c6b62" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">check valve</text>
-        <text x="282" y="404" fill="#5c6b62" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">check valve</text>
-        <text x="36" y="468" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">A and B join the water line. They have no path of their own.</text>
-        <text x="36" y="688" fill="#c4623e" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">ch.1 drives W · ch.2 drives A · ch.3 drives B</text>
+        <!-- clear front -->
+        <rect x="346" y="196" width="368" height="300" fill="#17241f"/>
+        <rect x="390" y="214" width="280" height="12" rx="6" fill="#f6e7b4"/>
+        <ellipse cx="530" cy="268" rx="120" ry="48" fill="url(#glow)"/>
 
         <!-- plant -->
-        <rect x="448" y="78" width="264" height="16" rx="6" fill="#f4e6b4"/>
-        <text x="500" y="112" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">LED bar · 12 V · ch.0</text>
-        <circle cx="700" cy="86" r="5" fill="#c4623e"/>
-        <text x="628" y="132" fill="#5c6b62" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">temp · GPIO</text>
-
-        <g opacity="0.85">
-          <rect x="424" y="150" width="44" height="26" rx="3" fill="#101814" stroke="#9a7340"/>
-          <circle cx="446" cy="163" r="6" fill="none" stroke="#d5ccbb" stroke-width="1.4"/>
-          <circle cx="446" cy="163" r="2.2" fill="#9a7340"/>
-          <text x="474" y="160" fill="#9a7340" font-size="10" font-family="Avenir Next, Segoe UI, sans-serif">later</text>
-          <text x="424" y="192" fill="#5c6b62" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">camera · CSI</text>
-        </g>
-        <path d="M468 163 H770 V78" fill="none" stroke="#9a7340" stroke-width="1.4" stroke-dasharray="1 4" opacity="0.8"/>
-
         <g>
-          <line x1="580" y1="250" x2="580" y2="390" stroke="#245536" stroke-width="3" stroke-linecap="round"/>
-          <ellipse cx="528" cy="310" rx="48" ry="15" fill="#2a6240" transform="rotate(-28 528 310)"/>
-          <ellipse cx="634" cy="300" rx="50" ry="16" fill="#2f6b46" transform="rotate(24 634 300)"/>
-          <ellipse cx="548" cy="268" rx="32" ry="12" fill="#3c8156" transform="rotate(-52 548 268)"/>
-          <ellipse cx="614" cy="260" rx="30" ry="12" fill="#34744c" transform="rotate(42 614 260)"/>
-          <g transform="translate(580 214)">
-            <ellipse cx="0" cy="-14" rx="7" ry="12" fill="#f4eadc"/>
-            <ellipse cx="12" cy="-4" rx="7" ry="12" fill="#f7f1e6" transform="rotate(72)"/>
-            <ellipse cx="8" cy="10" rx="7" ry="12" fill="#f3e6d4" transform="rotate(144)"/>
-            <ellipse cx="-8" cy="10" rx="7" ry="12" fill="#f7f1e6" transform="rotate(216)"/>
-            <ellipse cx="-12" cy="-4" rx="7" ry="12" fill="#f4eadc" transform="rotate(288)"/>
-            <circle r="5" fill="#e0a84a"/>
+          <line x1="530" y1="318" x2="530" y2="430" stroke="#245536" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="456" cy="372" rx="62" ry="20" fill="#245c3c" transform="rotate(-32 456 372)"/>
+          <ellipse cx="608" cy="360" rx="66" ry="21" fill="#2f6b46" transform="rotate(26 608 360)"/>
+          <ellipse cx="478" cy="332" rx="44" ry="16" fill="#3c8156" transform="rotate(-58 478 332)"/>
+          <ellipse cx="586" cy="322" rx="42" ry="15" fill="#34744c" transform="rotate(46 586 322)"/>
+          <ellipse cx="512" cy="300" rx="28" ry="14" fill="#4d9464" transform="rotate(-12 512 300)"/>
+          <ellipse cx="548" cy="308" rx="24" ry="12" fill="#3f8a58" transform="rotate(20 548 308)"/>
+          <g transform="translate(530 286)">
+            <ellipse cx="0" cy="-18" rx="9" ry="15" fill="#f4eadc"/>
+            <ellipse cx="15" cy="-6" rx="9" ry="15" fill="#f7f1e6" transform="rotate(72)"/>
+            <ellipse cx="9" cy="13" rx="9" ry="15" fill="#f3e6d4" transform="rotate(144)"/>
+            <ellipse cx="-9" cy="13" rx="9" ry="15" fill="#f7f1e6" transform="rotate(216)"/>
+            <ellipse cx="-15" cy="-6" rx="9" ry="15" fill="#f4eadc" transform="rotate(288)"/>
+            <circle r="6.5" fill="#e0a84a"/>
+          </g>
+          <g transform="translate(592 318)" opacity="0.9">
+            <ellipse cx="0" cy="-8" rx="5" ry="9" fill="#f7f1e6"/>
+            <circle r="3" fill="#e7c98a"/>
           </g>
         </g>
 
-        <ellipse cx="580" cy="386" rx="42" ry="8" fill="none" stroke="#3d7f96" stroke-width="2"/>
-        <circle cx="560" cy="392" r="2" fill="#3d7f96"/>
-        <text x="500" y="372" fill="#3d7f96" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">drip ring</text>
+        <!-- drip -->
+        <path d="M688 230 C 700 300, 640 360, 574 408" fill="none" stroke="#c5d4cc" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="530" cy="414" rx="46" ry="9" fill="none" stroke="#c5d4cc" stroke-width="2"/>
+        <circle cx="508" cy="420" r="2.2" fill="#8eb8cc"/>
+        <circle cx="546" cy="422" r="1.7" fill="#8eb8cc"/>
 
-        <path d="M360 430 H392 C 430 430, 470 394, 540 394" fill="none" stroke="#3d7f96" stroke-width="2.4"/>
+        <!-- pot -->
+        <polygon points="472,424 588,424 608,512 452,512" fill="url(#pot)"/>
+        <ellipse cx="530" cy="424" rx="58" ry="12" fill="#e09470"/>
+        <ellipse cx="530" cy="424" rx="42" ry="8" fill="#3a2a22"/>
+        <ellipse cx="478" cy="456" rx="10" ry="4" fill="#ffffff" opacity="0.18"/>
+        <ellipse cx="530" cy="522" rx="86" ry="12" fill="#6d5648"/>
+        <ellipse cx="530" cy="516" rx="76" ry="8" fill="#8a7262"/>
 
-        <polygon points="536,396 624,396 640,470 520,470" fill="#c4623e"/>
-        <ellipse cx="580" cy="396" rx="44" ry="8" fill="#d98460"/>
-        <ellipse cx="580" cy="396" rx="32" ry="5" fill="#3a2a22"/>
-        <ellipse cx="580" cy="478" rx="70" ry="9" fill="#6d5648"/>
-
-        <g stroke="#9aa6b0" stroke-width="1.7" stroke-linecap="round">
-          <line x1="500" y1="360" x2="540" y2="440"/>
-          <line x1="508" y1="360" x2="552" y2="448"/>
-          <line x1="516" y1="360" x2="564" y2="436"/>
+        <!-- probes -->
+        <g>
+          <rect x="438" y="392" width="36" height="14" rx="2" fill="#3d4650"/>
+          <text x="444" y="403" fill="#f4eadc" font-size="9" font-family="Avenir Next, Segoe UI, sans-serif">NPK</text>
+          <line x1="448" y1="406" x2="486" y2="478" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="456" y1="406" x2="498" y2="486" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="464" y1="406" x2="510" y2="474" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
         </g>
-        <rect x="486" y="344" width="34" height="14" rx="2" fill="#3d4650"/>
-        <text x="492" y="355" fill="#f4eadc" font-size="9" font-family="Avenir Next, Segoe UI, sans-serif">NPK</text>
-        <text x="416" y="520" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">RS485 · a few times a day</text>
+        <line x1="612" y1="388" x2="576" y2="478" stroke="#a89884" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="572" cy="484" r="4" fill="#c4623e"/>
 
-        <line x1="650" y1="340" x2="620" y2="440" stroke="#a89884" stroke-width="2.4" stroke-linecap="round"/>
-        <circle cx="618" cy="444" r="3.2" fill="#c4623e"/>
-        <text x="612" y="520" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">capacitive · analog</text>
-
-        <!-- control cards -->
-        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="12" fill="#1b2c24">
-          <rect x="808" y="78" width="180" height="86" rx="4" fill="#1f6b45"/>
-          <text x="822" y="104" fill="#faf7f1">Orange Pi Zero 3</text>
-          <text x="822" y="124" fill="#d7e8dc">5 V only · Armbian</text>
-          <text x="822" y="142" fill="#d7e8dc">Python loop</text>
-
-          <rect x="1008" y="78" width="192" height="40" rx="4" fill="#faf7f1" stroke="#2f6b46"/>
-          <text x="1022" y="102">5 V supply · Pi only</text>
-
-          <rect x="808" y="184" width="180" height="52" rx="4" fill="#faf7f1" stroke="#9a7340"/>
-          <text x="822" y="206">PCA9685</text>
-          <text x="822" y="224" fill="#5c6b62">I2C · PWM ch.0–3</text>
-
-          <rect x="1008" y="184" width="192" height="52" rx="4" fill="#faf7f1" stroke="#9a7340"/>
-          <text x="1022" y="206">ADS1115</text>
-          <text x="1022" y="224" fill="#5c6b62">I2C · moisture</text>
-
-          <rect x="808" y="254" width="180" height="52" rx="4" fill="#faf7f1" stroke="#9a7340"/>
-          <text x="822" y="276">USB–RS485</text>
-          <text x="822" y="294" fill="#5c6b62">NPK Modbus</text>
-
-          <rect x="1008" y="254" width="192" height="72" rx="4" fill="#faf7f1" stroke="#c4623e"/>
-          <text x="1022" y="276">MOSFET ×4</text>
-          <text x="1022" y="294" fill="#5c6b62">gates from PCA9685</text>
-          <text x="1022" y="312" fill="#5c6b62">switches 12 V</text>
-
-          <rect x="808" y="326" width="180" height="52" rx="4" fill="#faf7f1" stroke="#c4623e"/>
-          <text x="822" y="348">12 V supply</text>
-          <text x="822" y="366" fill="#5c6b62">pumps and LED only</text>
-
-          <text x="808" y="410" fill="#5c6b62">I2C is four wires: SDA, SCL, 3.3 V, GND.</text>
-          <text x="808" y="430" fill="#5c6b62">Header UART stays free. Common ground.</text>
-          <text x="808" y="450" fill="#c4623e">12 V never touches a Pi pin.</text>
-          <text x="808" y="470" fill="#9a7340">Later: YOLO on this board, via CSI.</text>
+        <!-- later camera -->
+        <g opacity="0.7">
+          <rect x="662" y="214" width="32" height="20" rx="3" fill="#101814" stroke="#8d8478"/>
+          <circle cx="678" cy="224" r="4.5" fill="#6d7c74"/>
+          <text x="648" y="252" fill="#c9c0b2" font-size="10" font-family="Avenir Next, Segoe UI, sans-serif" letter-spacing="0.08em">LATER</text>
         </g>
 
-        <!-- I2C on the dry side only. PWM gates hop from PCA9685 to the MOSFET. -->
-        <g stroke="#9a7340" stroke-width="1.6" fill="none" stroke-dasharray="4 3">
-          <path d="M898 164 V184"/>
-          <path d="M988 120 H1008"/>
-          <path d="M988 210 H1008"/>
-          <path d="M988 220 H1040 V254"/>
+        <rect x="346" y="196" width="368" height="300" fill="url(#glass)"/>
+        <rect x="358" y="208" width="7" height="180" rx="3" fill="#ffffff" opacity="0.16"/>
+
+        <!-- base shelf with bottles -->
+        <rect x="346" y="512" width="368" height="128" fill="#283e34"/>
+        <rect x="362" y="528" width="336" height="96" rx="4" fill="#1c2e28"/>
+        <g>
+          <rect x="388" y="546" width="28" height="58" rx="4" fill="#d5e6ee"/>
+          <rect x="394" y="536" width="16" height="12" rx="2" fill="#6d7f74"/>
+          <rect x="448" y="552" width="26" height="52" rx="4" fill="#f3e2b4"/>
+          <rect x="453" y="542" width="16" height="12" rx="2" fill="#6d7f74"/>
+          <rect x="504" y="552" width="26" height="52" rx="4" fill="#e4efc8"/>
+          <rect x="509" y="542" width="16" height="12" rx="2" fill="#6d7f74"/>
         </g>
-        <text x="904" y="178" fill="#9a7340" font-size="10" font-family="Avenir Next, Segoe UI, sans-serif">I2C</text>
+        <path d="M402 546 C 430 530, 520 530, 688 400" fill="none" stroke="#c5d4cc" stroke-width="1.4" opacity="0.7"/>
+        <text x="560" y="582" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">Water</text>
+        <text x="612" y="604" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">A</text>
+        <text x="640" y="604" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">B</text>
 
-        <!-- sensors meet a bus under the panels, then one trunk into the Pi -->
-        <path d="M108 132 H32 V748 H770" fill="none" stroke="#9a7340" stroke-width="1.6" stroke-dasharray="4 3"/>
-        <path d="M500 360 H416 V748 H770" fill="none" stroke="#9a7340" stroke-width="1.6" stroke-dasharray="4 3"/>
-        <path d="M650 360 H770 V210 H1008" fill="none" stroke="#9a7340" stroke-width="1.6" stroke-dasharray="4 3"/>
-        <path d="M706 86 H770 V70 H898 V78" fill="none" stroke="#9a7340" stroke-width="1.6" stroke-dasharray="4 3"/>
-        <path d="M770 748 V164 H808" fill="none" stroke="#9a7340" stroke-width="1.6" stroke-dasharray="4 3"/>
-        <text x="40" y="740" fill="#9a7340" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">float · GPIO</text>
-        <text x="430" y="740" fill="#9a7340" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">NPK · RS485</text>
-        <text x="776" y="300" fill="#9a7340" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">analog</text>
-        <text x="784" y="64" fill="#9a7340" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">temp · GPIO</text>
+        <!-- feet -->
+        <rect x="348" y="662" width="36" height="10" fill="#1a2822"/>
+        <rect x="676" y="662" width="36" height="10" fill="#1a2822"/>
 
-        <!-- 12 V bus under the cabinet. Taps are labeled; they do not enter the Pi. -->
-        <path d="M988 352 H1008" fill="none" stroke="#c4623e" stroke-width="2.2"/>
-        <path d="M1104 326 V808 H70" fill="none" stroke="#c4623e" stroke-width="2.2"/>
-        <path d="M82 808 V716" fill="none" stroke="#c4623e" stroke-width="2.2"/>
-        <path d="M196 808 V716" fill="none" stroke="#c4623e" stroke-width="2.2"/>
-        <path d="M310 808 V716" fill="none" stroke="#c4623e" stroke-width="2.2"/>
-        <path d="M778 808 V94 H712" fill="none" stroke="#c4623e" stroke-width="2.2"/>
-        <text x="58" y="796" fill="#c4623e" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">ch.1</text>
-        <text x="172" y="796" fill="#c4623e" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">ch.2</text>
-        <text x="286" y="796" fill="#c4623e" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">ch.3</text>
-        <text x="784" y="180" fill="#c4623e" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">ch.0</text>
-        <text x="860" y="800" fill="#c4623e" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">12 V · common ground · not a Pi pin</text>
-
-        <!-- POST stays off the I2C chips -->
-        <path d="M998 120 V560" fill="none" stroke="#2f6b46" stroke-width="2"/>
-        <polygon points="992,552 1004,552 998,566" fill="#2f6b46"/>
-        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="13" fill="#1b2c24">
-          <text x="822" y="590">POST every reading and every dose.</text>
-          <text x="822" y="614" fill="#5c6b62">Light, temperature, moisture, NPK,</text>
-          <text x="822" y="634" fill="#5c6b62">float, and each pump pulse.</text>
-          <text x="822" y="666" fill="#5c6b62">The server collects and aggregates.</text>
-          <text x="822" y="692" fill="#5c6b62">The cabinet still acts if the POST fails.</text>
-          <text x="822" y="714" fill="#9a7340">Later: leaf color, spots, bloom stage.</text>
+        <!-- callouts -->
+        <g font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="18" fill="#1b2c24">
+          <text x="72" y="210">Light</text>
+          <text x="72" y="400">The soil</text>
+          <text x="900" y="250">A drink</text>
+          <text x="900" y="520">Feed</text>
+        </g>
+        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="13" fill="#5c6b62">
+          <text x="72" y="232">Hours and brightness,</text>
+          <text x="72" y="250">held above the leaves.</text>
+          <text x="72" y="422">Moisture, and nitrogen,</text>
+          <text x="72" y="440">phosphorus, potassium.</text>
+          <text x="900" y="272">A small pour when</text>
+          <text x="900" y="290">the pot is dry.</text>
+          <text x="900" y="542">A and B only if a</text>
+          <text x="900" y="560">reading is short.</text>
+        </g>
+        <g stroke="#c4623e" stroke-width="1.2" fill="none">
+          <path d="M168 198 H300"/>
+          <path d="M150 408 H360"/>
+          <path d="M900 242 H760"/>
+          <path d="M900 528 H720"/>
         </g>
       </svg>
-
-      <ul class="legend">
-        <li><i class="fluid"></i>Fluid</li>
-        <li><i class="power"></i>12 V power</li>
-        <li><i class="signal"></i>Signal</li>
-        <li><i class="logic"></i>POST</li>
-      </ul>
-      <figcaption>Wet side, plant, dry side. Fluid is blue, 12 V is red, signals are dashed. The green line is the POST. About 40 cm wide and 70 cm tall.</figcaption>
+      <figcaption>As it sits on a table. Clear front, one plant, three bottles in the base. A camera can take the corner later.</figcaption>
     </figure>
 
-    <section id="jobs">
-      <p class="eyebrow">Jobs</p>
-      <h2>Four things it is for.</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Light</h3>
-          <p>You set hours and brightness. Channel 0 of the PCA9685 dims the 12 V bar. If the bay is too warm, the duty falls, including to off.</p>
-        </article>
-        <article class="card">
-          <h3>Water</h3>
-          <p>A capacitive probe on the ADS1115 asks for a drink. The water pump runs for a few seconds, then the cabinet waits and reads again. It stops if the soil is wet, the float says the tank is empty, or the day's cap is hit.</p>
-        </article>
-        <article class="card">
-          <h3>Nutrients</h3>
-          <p>The RS485 probe reads nitrogen, phosphorus, and potassium a few times a day. Short on nitrogen, pulse A. Short on phosphorus or potassium, pulse B. In range, pulse neither. A and B join the water line. They never run alone.</p>
-        </article>
-        <article class="card">
-          <h3>Report</h3>
-          <p>Every reading and every dose is posted. The server stores them and keeps hourly and daily aggregates. If the POST fails, the cabinet still acts and retries with the same id.</p>
-        </article>
-      </div>
-    </section>
+    <div class="jobs">
+      <article class="job">
+        <h2>Light</h2>
+        <p>The hood keeps the day you set. If the bay gets warm, the light backs off.</p>
+      </article>
+      <article class="job">
+        <h2>Water</h2>
+        <p>A dry pot gets a small drink. The cabinet waits, checks, and stops before it floods.</p>
+      </article>
+      <article class="job">
+        <h2>Feed</h2>
+        <p>It reads the soil. A and B go up only when a reading is short, carried in the water.</p>
+      </article>
+      <article class="job">
+        <h2>Record</h2>
+        <p>What it saw and what it did is sent on. The box still tends the plant if that send fails.</p>
+      </article>
+    </div>
 
-    <section id="control">
-      <p class="eyebrow">Control</p>
-      <h2>The Pi decides. It does not power anything.</h2>
-      <p class="lead">Pumps and the LED sit on their own 12 V supply, switched by a MOSFET board. Ground is common. 12 V never touches a pin. On boot, all four channels are off.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Function</th><th>Path</th><th>Rule</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Light</td><td>PCA9685 ch.0 → MOSFET → 12 V bar</td><td>Schedule, then thermal backoff</td></tr>
-            <tr><td>Water</td><td>ch.1 → 80–150 ml/min peristaltic</td><td>One timed pulse, then wait. Float and daily cap can hold it</td></tr>
-            <tr><td>A and B</td><td>ch.2 and ch.3 → 10–30 ml/min, check valves into the water line</td><td>Only while water is moving, and only after a cooldown</td></tr>
-            <tr><td>Moisture</td><td>Capacitive probe → ADS1115 → I2C</td><td>A failed read means do not water</td></tr>
-            <tr><td>NPK</td><td>Modbus → USB–RS485</td><td>A few times a day. A failed read means do not dose</td></tr>
-            <tr><td>Float, temperature</td><td>GPIO</td><td>Empty tank holds every pump. Heat holds the light</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="lead" style="margin-top: 1rem;">Setpoints live on the Pi: on and off times, light duty, moisture band, pulse lengths, NPK lows, and the hours between nutrient doses. The server cannot open a MOSFET.</p>
-    </section>
-
-    <section id="records">
-      <p class="eyebrow">Records</p>
-      <h2>What leaves the cabinet.</h2>
-      <div class="split">
-        <article class="card">
-          <h3>Readings</h3>
-          <p><code>moisture</code>, <code>temperature</code>, <code>npk</code>, <code>light</code>, <code>float</code>. Vision is added later. NPK is omitted on cycles that did not read it.</p>
-          <p>Each row has an id, a cabinet id, and <code>recorded_at</code> from the Pi. The server adds <code>received_at</code>.</p>
-        </article>
-        <article class="card">
-          <h3>Doses and faults</h3>
-          <p>A dose is a pulse or a light change: channel, seconds or duty, and a reason such as <code>moisture_low</code>, <code>n_short</code>, <code>too_warm</code>, <code>float_empty</code>, or <code>daily_cap</code>.</p>
-          <p>A skipped pulse is not a dose. A fault names the source: ADC, NPK, PWM board, float, temperature, or, later, the camera.</p>
-        </article>
-      </div>
-      <p class="lead" style="margin-top: 1rem;">Aggregates are computed on the server, by hour and by day: moisture average, temperature range, light-on time, water and concentrate seconds, and the last NPK sample. The cabinet does not send them.</p>
-    </section>
-
-    <section id="api">
-      <p class="eyebrow">API</p>
-      <h2>One POST. No remote pump.</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Call</th><th>Who</th><th>What</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>POST /v1/cabinets/{id}/batch</code></td><td>Cabinet</td><td>Readings, doses, and faults in one body. <code>202</code> counts new rows and duplicates.</td></tr>
-            <tr><td><code>GET /v1/cabinets/{id}/aggregates</code></td><td>A person</td><td>Hour or day buckets. The control loop never calls this.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="cards" style="margin-top: 0.8rem;">
-        <article class="card">
-          <h3>Retries</h3>
-          <p>The id is chosen on the Pi and reused if the call times out. A repeated id is the same row, not a second dose. A <code>400</code> is dropped. A <code>401</code>, <code>404</code>, or <code>5xx</code> stays in the queue.</p>
-        </article>
-        <article class="card">
-          <h3>Not in this version</h3>
-          <p>No endpoint turns a pump on. No setpoint is written from the server. Later vision posts a label and a confidence, not the frame.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="later">
-      <p class="eyebrow">Later</p>
-      <h2>A camera for the leaves, not for dosing.</h2>
-      <p class="lead">A CSI camera on the Zero 3, because USB is the RS485 adapter. A small YOLO model runs on the CPU, a frame every few minutes. The board has no NPU. It tracks leaf yellowing, browning, spots, and bloom stage, and those events are posted. The water and nutrient loops do not read it.</p>
-      <p class="intro">Longer notes, including the setpoint list and the error table, are in <a href="docs/README.md">docs</a>.</p>
-    </section>
-
-    <footer>Flower Lab · one pot · Orange Pi Zero 3 · about 40 × 70 cm · <a href="docs/README.md">docs</a></footer>
+    <footer>Flower Lab · one pot · on the table</footer>
   </div>
 </body>
 </html>
