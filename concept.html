@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flower Lab on a table. One pipe carries water and feed to a drip ring on the soil. Probes, a small computer, and a cable to a nearby switch.">
+  <meta name="description" content="Flower Lab on a wooden table: the cabinet, soil probes, a computer in the dry side, and a cable through a switch to a server.">
   <title>Flower Lab</title>
   <style>
     :root {
@@ -14,89 +14,40 @@
       --line: #d5ccbb;
       --green: #234237;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        radial-gradient(1100px 520px at 70% -12%, #efe4cf 0%, transparent 58%),
-        var(--paper);
+      background: radial-gradient(1100px 480px at 80% -10%, #efe4cf 0%, transparent 55%), var(--paper);
       font-family: "Avenir Next", "Avenir", "Segoe UI", sans-serif;
       font-size: 1.05rem;
       line-height: 1.5;
     }
-
     h1, h2 {
       font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
       font-weight: 500;
       letter-spacing: -0.03em;
       line-height: 1.02;
     }
-
-    .wrap { width: min(1240px, calc(100% - 1.5rem)); margin: 0 auto; }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 1.2rem 0 0.4rem;
-    }
-
+    .wrap { width: min(1280px, calc(100% - 1.5rem)); margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.1rem 0 0.3rem; }
     .brand { display: flex; align-items: center; gap: 0.5rem; }
-
-    .meta {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0.35rem 0 0.55rem;
-      font-size: clamp(2.5rem, 5vw, 4.1rem);
-      max-width: 16ch;
-    }
-
-    .intro {
-      max-width: 42rem;
-      margin: 0 0 1rem;
-      color: var(--green);
-      font-size: 1.12rem;
-    }
-
+    .meta { margin: 0; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; }
+    h1 { margin: 0.3rem 0 0.5rem; font-size: clamp(2.4rem, 5vw, 3.8rem); max-width: 18ch; }
+    .intro { max-width: 44rem; margin: 0 0 1rem; color: var(--green); font-size: 1.1rem; }
     .sheet {
-      margin: 0;
-      padding: 0.5rem;
-      background: var(--sheet);
-      border: 1px solid var(--line);
-      outline: 1px solid var(--line);
-      outline-offset: 5px;
+      margin: 0; padding: 0.45rem; background: var(--sheet);
+      border: 1px solid var(--line); outline: 1px solid var(--line); outline-offset: 5px;
       overflow-x: auto;
     }
-
-    .drawing { width: 100%; min-width: 1180px; height: auto; display: block; }
-
-    figcaption { margin: 0.55rem 0.3rem 0; color: var(--muted); font-size: 0.92rem; }
-
-    .jobs {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.8rem;
-      margin: 1.25rem 0 0.3rem;
-    }
-
-    .job { padding-top: 0.7rem; border-top: 1px solid var(--ink); }
-    .job h2 { margin: 0 0 0.35rem; font-size: 1.45rem; }
+    .drawing { width: 100%; min-width: 1280px; height: auto; display: block; }
+    figcaption { margin: 0.55rem 0.25rem 0; color: var(--muted); font-size: 0.92rem; }
+    .jobs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 1.2rem 0 0.2rem; }
+    .job { padding-top: 0.65rem; border-top: 1px solid var(--ink); }
+    .job h2 { margin: 0 0 0.3rem; font-size: 1.4rem; }
     .job p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-    footer { padding: 1.3rem 0 1.7rem; color: var(--muted); font-size: 0.85rem; }
-
-    @media (max-width: 800px) {
-      .jobs { grid-template-columns: 1fr 1fr; }
-    }
+    footer { padding: 1.2rem 0 1.6rem; color: var(--muted); font-size: 0.85rem; }
+    @media (max-width: 800px) { .jobs { grid-template-columns: 1fr 1fr; } }
   </style>
 </head>
 <body>
@@ -111,237 +62,269 @@
       </div>
       <p class="meta">On the table</p>
     </header>
-
-    <h1>One pipe up. A ring on the soil.</h1>
-    <p class="intro">Water and feed share the tube that climbs the wall. At the pot that tube becomes a ring, so the drink lands around the plant, on the soil, not on the leaves and not in one hole.</p>
+    <h1>The box, the probes, the cable, the server.</h1>
+    <p class="intro">All of it sits in one place. The cabinet tends the plant. A cable crosses the table to a switch, and another cable ends at the server that keeps the record.</p>
 
     <figure class="sheet">
-      <svg class="drawing" viewBox="0 0 1600 1120" role="img" aria-labelledby="t d">
-        <title id="t">How the drink reaches the soil</title>
-        <desc id="d">One riser from three bottles becomes a six-outlet ring on the soil. A cutaway shows the wet ring soaking down around the roots. Probes cable to a computer, and ethernet runs to a switch on the table.</desc>
+      <svg class="drawing" viewBox="0 0 1960 1180" role="img" aria-labelledby="t d">
+        <title id="t">Flower Lab on a table, with switch and server</title>
+        <desc id="d">A detailed cabinet on a wooden table. Soil probes cable to a small computer. Ethernet runs to a switch, then to a server at the far end of the table.</desc>
         <defs>
           <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e6d4b6"/><stop offset="1" stop-color="#c9ae86"/>
+            <stop offset="0" stop-color="#efdcc0"/><stop offset="1" stop-color="#c9ae86"/>
           </linearGradient>
           <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#b08968"/><stop offset="1" stop-color="#8d6848"/>
+            <stop offset="0" stop-color="#b08968"/><stop offset="1" stop-color="#7a5a3c"/>
           </linearGradient>
           <linearGradient id="pot" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e09470"/><stop offset="1" stop-color="#a34c30"/>
+            <stop offset="0" stop-color="#e09470"/><stop offset="1" stop-color="#9a4630"/>
           </linearGradient>
-          <linearGradient id="cable" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#3d6f9a"/><stop offset="0.5" stop-color="#8ec0e0"/><stop offset="1" stop-color="#3d6f9a"/>
+          <linearGradient id="eth" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8ec0e0"/><stop offset="0.5" stop-color="#3d6f9a"/><stop offset="1" stop-color="#8ec0e0"/>
           </linearGradient>
-          <radialGradient id="glow" cx="50%" cy="0%" r="80%">
-            <stop offset="0" stop-color="#f8e7b0" stop-opacity="0.85"/>
+          <radialGradient id="glow" cx="40%" cy="0%" r="70%">
+            <stop offset="0" stop-color="#f8e7b0" stop-opacity="0.8"/>
             <stop offset="1" stop-color="#f8e7b0" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
-        <rect width="1600" height="800" fill="#f6f1e8"/>
-        <polygon points="20,860 1580,860 1520,1000 80,1000" fill="url(#wood)"/>
-        <polygon points="80,1000 1520,1000 1494,1036 106,1036" fill="url(#edge)"/>
-        <g stroke="#a68456" stroke-width="1" opacity="0.28">
-          <path d="M60 900 H1540"/><path d="M70 940 H1530"/><path d="M90 978 H1510"/>
+        <!-- room -->
+        <rect width="1960" height="700" fill="#f4efe6"/>
+        <rect y="688" width="1960" height="28" fill="#e7dccb"/>
+        <rect y="716" width="1960" height="464" fill="#ddd0bc"/>
+        <g stroke="#cbbba4" stroke-width="1" opacity="0.7">
+          <path d="M0 760 H1960"/><path d="M0 820 H1960"/><path d="M0 880 H1960"/><path d="M0 940 H1960"/><path d="M0 1000 H1960"/><path d="M0 1060 H1960"/>
         </g>
-        <rect x="120" y="1036" width="24" height="70" fill="#8d6848"/>
-        <rect x="1456" y="1036" width="24" height="70" fill="#8d6848"/>
 
-        <!-- cabinet -->
-        <polygon points="36,48 700,48 748,18 84,18" fill="#4a6556"/>
-        <rect x="36" y="48" width="664" height="790" fill="#31483d"/>
-        <polygon points="700,48 748,18 748,800 700,838" fill="#24362c"/>
-        <rect x="54" y="66" width="628" height="430" fill="#17241f"/>
-        <rect x="90" y="82" width="520" height="12" rx="6" fill="#f6e7b4"/>
-        <ellipse cx="340" cy="130" rx="180" ry="40" fill="url(#glow)"/>
+        <!-- table -->
+        <polygon points="70,748 1900,748 1868,792 102,792" fill="url(#wood)"/>
+        <polygon points="102,792 1868,792 1848,828 122,828" fill="url(#edge)"/>
+        <g stroke="#a68456" stroke-width="1.1" opacity="0.35">
+          <path d="M120 758 H1840"/><path d="M130 770 H1830"/><path d="M140 782 H1820"/>
+        </g>
+        <rect x="150" y="828" width="36" height="250" fill="#8d6848"/>
+        <rect x="178" y="828" width="8" height="250" fill="#a68456" opacity="0.35"/>
+        <rect x="1764" y="828" width="36" height="250" fill="#8d6848"/>
+        <rect x="150" y="1068" width="52" height="14" fill="#6d5038"/>
+        <rect x="1748" y="1068" width="52" height="14" fill="#6d5038"/>
+        <ellipse cx="480" cy="746" rx="260" ry="10" fill="#1b2c24" opacity="0.08"/>
 
-        <!-- leaves stay above the ring -->
+        <!-- cabinet body -->
+        <rect x="96" y="118" width="620" height="616" fill="#31483d"/>
+        <rect x="96" y="118" width="620" height="18" fill="#3e5649"/>
+        <rect x="108" y="148" width="520" height="360" fill="#121c18" stroke="#24362c" stroke-width="8"/>
+        <!-- door hinge and handle -->
+        <rect x="112" y="200" width="8" height="28" rx="1" fill="#8d8478"/>
+        <rect x="112" y="360" width="8" height="28" rx="1" fill="#8d8478"/>
+        <rect x="600" y="300" width="8" height="36" rx="2" fill="#c4b39a"/>
+        <!-- LED bar with diodes -->
+        <rect x="150" y="162" width="430" height="16" rx="3" fill="#2a2418"/>
+        <g fill="#f6e7b4">
+          <circle cx="170" cy="170" r="3"/><circle cx="190" cy="170" r="3"/><circle cx="210" cy="170" r="3"/>
+          <circle cx="230" cy="170" r="3"/><circle cx="250" cy="170" r="3"/><circle cx="270" cy="170" r="3"/>
+          <circle cx="290" cy="170" r="3"/><circle cx="310" cy="170" r="3"/><circle cx="330" cy="170" r="3"/>
+          <circle cx="350" cy="170" r="3"/><circle cx="370" cy="170" r="3"/><circle cx="390" cy="170" r="3"/>
+          <circle cx="410" cy="170" r="3"/><circle cx="430" cy="170" r="3"/><circle cx="450" cy="170" r="3"/>
+          <circle cx="470" cy="170" r="3"/><circle cx="490" cy="170" r="3"/><circle cx="510" cy="170" r="3"/>
+          <circle cx="530" cy="170" r="3"/><circle cx="550" cy="170" r="3"/>
+        </g>
+        <ellipse cx="350" cy="210" rx="160" ry="36" fill="url(#glow)"/>
+
+        <!-- plant -->
+        <line x1="300" y1="230" x2="300" y2="318" stroke="#245536" stroke-width="4"/>
+        <ellipse cx="228" cy="268" rx="58" ry="16" fill="#245c3c" transform="rotate(-26 228 268)"/>
+        <ellipse cx="376" cy="258" rx="60" ry="16" fill="#2f6b46" transform="rotate(22 376 258)"/>
+        <ellipse cx="250" cy="236" rx="36" ry="12" fill="#3c8156" transform="rotate(-48 250 236)"/>
+        <g transform="translate(300 214)">
+          <ellipse cx="0" cy="-11" rx="6" ry="10" fill="#f4eadc"/>
+          <ellipse cx="10" cy="-3" rx="6" ry="10" fill="#f7f1e6" transform="rotate(70)"/>
+          <ellipse cx="6" cy="8" rx="6" ry="10" fill="#f3e6d4" transform="rotate(140)"/>
+          <ellipse cx="-6" cy="8" rx="6" ry="10" fill="#f7f1e6" transform="rotate(210)"/>
+          <ellipse cx="-10" cy="-3" rx="6" ry="10" fill="#f4eadc" transform="rotate(280)"/>
+          <circle r="4.5" fill="#e0a84a"/>
+        </g>
+
+        <!-- pot and soil cut -->
+        <polygon points="176,330 430,330 458,455 148,455" fill="url(#pot)"/>
+        <ellipse cx="303" cy="330" rx="127" ry="13" fill="#e4a07c"/>
+        <ellipse cx="303" cy="330" rx="108" ry="9" fill="#4a3428"/>
+        <path d="M190 334 H416 L440 448 H166 Z" fill="#5a4032"/>
+        <path d="M230 340 H376 L360 400 H246 Z" fill="#6b5040"/>
+        <path d="M198 338 C 192 380, 188 420, 200 446 C 214 430, 222 390, 214 340 Z" fill="#3e6f86" opacity="0.4"/>
+        <path d="M248 336 C 244 378, 246 416, 258 442 C 272 420, 270 378, 266 338 Z" fill="#3e6f86" opacity="0.35"/>
+        <path d="M332 336 C 340 382, 350 422, 362 446 C 376 418, 368 376, 360 338 Z" fill="#c4a15a" opacity="0.55"/>
+        <path d="M386 338 C 396 386, 404 424, 410 448 C 424 420, 416 376, 404 340 Z" fill="#d7b36a" opacity="0.62"/>
+        <g fill="none" stroke="#c4a48a" stroke-width="1.3">
+          <path d="M300 318 V360 C 270 390, 230 410, 200 424"/>
+          <path d="M300 350 C 340 380, 370 400, 400 418"/>
+        </g>
+        <ellipse cx="303" cy="462" rx="130" ry="11" fill="#6d5648"/>
+        <ellipse cx="286" cy="460" rx="28" ry="3.5" fill="#7eb8d0" opacity="0.4"/>
+
+        <!-- ring -->
+        <ellipse cx="303" cy="324" rx="86" ry="11" fill="none" stroke="#9bb0b8" stroke-width="3.5"/>
+        <circle cx="226" cy="328" r="2.2" fill="#7eb8d0"/>
+        <circle cx="260" cy="318" r="2" fill="#7eb8d0"/>
+        <circle cx="340" cy="318" r="3.1" fill="#d7b36a"/>
+        <circle cx="376" cy="328" r="3.4" fill="#e0c07a"/>
+        <circle cx="372" cy="338" r="2" fill="#d7b36a"/>
+        <text x="468" y="312" fill="#9bb0b8" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">ring on the soil</text>
+        <text x="468" y="348" fill="#d7b36a" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">near side, more feed</text>
+        <text x="468" y="384" fill="#3d7f96" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">far side, more flush</text>
+        <text x="468" y="420" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">dry gaps between fingers</text>
+        <text x="468" y="456" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">saucer is not returned</text>
+
+        <!-- NPK probe, large -->
         <g>
-          <line x1="300" y1="168" x2="300" y2="268" stroke="#245536" stroke-width="4"/>
-          <ellipse cx="220" cy="210" rx="62" ry="18" fill="#245c3c" transform="rotate(-28 220 210)"/>
-          <ellipse cx="386" cy="200" rx="66" ry="18" fill="#2f6b46" transform="rotate(22 386 200)"/>
-          <ellipse cx="246" cy="176" rx="40" ry="14" fill="#3c8156" transform="rotate(-50 246 176)"/>
-          <ellipse cx="360" cy="168" rx="38" ry="13" fill="#34744c" transform="rotate(40 360 168)"/>
-          <g transform="translate(300 150)">
-            <ellipse cx="0" cy="-12" rx="7" ry="11" fill="#f4eadc"/>
-            <ellipse cx="11" cy="-4" rx="7" ry="11" fill="#f7f1e6" transform="rotate(72)"/>
-            <ellipse cx="7" cy="9" rx="7" ry="11" fill="#f3e6d4" transform="rotate(144)"/>
-            <ellipse cx="-7" cy="9" rx="7" ry="11" fill="#f7f1e6" transform="rotate(216)"/>
-            <ellipse cx="-11" cy="-4" rx="7" ry="11" fill="#f4eadc" transform="rotate(288)"/>
-            <circle r="5" fill="#e0a84a"/>
-          </g>
+          <rect x="168" y="286" width="28" height="40" rx="3" fill="#2c3136"/>
+          <rect x="172" y="290" width="20" height="10" rx="1" fill="#5c656e"/>
+          <circle cx="182" cy="308" r="3" fill="#1b2024"/>
+          <line x1="174" y1="326" x2="186" y2="400" stroke="#d5dee6" stroke-width="2.6" stroke-linecap="round"/>
+          <line x1="182" y1="326" x2="198" y2="408" stroke="#eef3f7" stroke-width="2.6" stroke-linecap="round"/>
+          <line x1="190" y1="326" x2="210" y2="396" stroke="#b7c3ce" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M168 296 H140 V470 H620" fill="none" stroke="#2c3136" stroke-width="2.5"/>
+          <rect x="132" y="468" width="10" height="6" fill="#6d7f74"/>
+          <rect x="250" y="468" width="10" height="6" fill="#6d7f74"/>
+          <rect x="400" y="468" width="10" height="6" fill="#6d7f74"/>
+          <text x="112" y="276" fill="#1b2c24" font-size="14" font-family="Iowan Old Style, Palatino, Georgia, serif">NPK</text>
         </g>
-        <text x="70" y="40" fill="#5c6b62" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">leaves stay dry</text>
-
-        <!-- pot shell -->
-        <polygon points="168,300 470,300 508,470 130,470" fill="url(#pot)"/>
-        <ellipse cx="319" cy="300" rx="151" ry="16" fill="#e4a07c"/>
-        <!-- soil surface -->
-        <ellipse cx="319" cy="300" rx="128" ry="12" fill="#4a3428"/>
-        <!-- cut face of soil -->
-        <path d="M191 300 H447 L478 455 H160 Z" fill="#5a4032"/>
-        <!-- dry gaps between fingers, and under the stem -->
-        <path d="M250 308 H390 L372 400 H268 Z" fill="#6b5040"/>
-        <path d="M230 330 L248 430 L210 448 L198 340 Z" fill="#6a4e3c" opacity="0.65"/>
-        <path d="M390 330 L408 448 L372 430 L360 340 Z" fill="#6a4e3c" opacity="0.55"/>
-        <!-- separate wet fingers, not one sponge. Right fingers carry more feed. -->
-        <path d="M228 308 C 220 350, 214 400, 222 440 C 236 428, 246 390, 242 312 Z" fill="#3e6f86" opacity="0.45"/>
-        <path d="M268 304 C 262 348, 258 392, 270 428 C 284 410, 286 360, 280 308 Z" fill="#3e6f86" opacity="0.4"/>
-        <path d="M352 304 C 358 360, 366 410, 378 438 C 392 400, 390 350, 382 308 Z" fill="#c4a15a" opacity="0.55"/>
-        <path d="M400 308 C 408 360, 418 410, 424 446 C 438 420, 432 360, 418 310 Z" fill="#d7b36a" opacity="0.6"/>
-        <path d="M310 306 C 306 340, 308 370, 316 400 C 328 372, 330 340, 326 306 Z" fill="#5a8fa6" opacity="0.35"/>
-        <!-- roots in the wet band -->
-        <g fill="none" stroke="#c4a48a" stroke-width="1.4" stroke-linecap="round">
-          <path d="M300 268 V330 C 280 360, 240 390, 210 410"/>
-          <path d="M300 320 C 330 350, 370 380, 410 400"/>
-          <path d="M300 310 C 286 340, 300 370, 286 400"/>
-          <path d="M292 340 C 250 350, 220 360, 200 378"/>
-        </g>
-        <text x="500" y="348" fill="#d7b36a" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">near outlets</text>
-        <text x="500" y="366" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">catch more feed</text>
-        <text x="500" y="390" fill="#3d7f96" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">far outlets</text>
-        <text x="500" y="408" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">get more of the flush</text>
-        <text x="168" y="430" fill="#e7d2c4" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">dry gaps stay</text>
-
-        <!-- ring on the soil, six outlets, drops on soil -->
-        <ellipse cx="319" cy="292" rx="92" ry="14" fill="none" stroke="#9bb0b8" stroke-width="4"/>
+        <!-- moisture blade -->
         <g>
-          <circle cx="236" cy="296" r="2.4" fill="#7eb8d0"/>
-          <circle cx="268" cy="286" r="2.2" fill="#7eb8d0"/>
-          <circle cx="319" cy="282" r="2.6" fill="#9ec9dc"/>
-          <circle cx="370" cy="286" r="3.4" fill="#d7b36a"/>
-          <circle cx="402" cy="296" r="3.8" fill="#e0c07a"/>
-          <circle cx="319" cy="304" r="2" fill="#7eb8d0"/>
-          <circle cx="248" cy="314" r="1.6" fill="#7eb8d0"/>
-          <circle cx="388" cy="312" r="2.4" fill="#d7b36a"/>
-          <circle cx="408" cy="308" r="2" fill="#e0c07a"/>
-        </g>
-        <text x="430" y="270" fill="#9bb0b8" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">ring, not even</text>
-        <text x="430" y="288" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">drops hit soil, not leaves</text>
-
-        <!-- probes -->
-        <g>
-          <rect x="196" y="248" width="18" height="28" rx="2" fill="#2a2e32"/>
-          <line x1="200" y1="276" x2="214" y2="360" stroke="#d5dee6" stroke-width="2.2"/>
-          <line x1="205" y1="276" x2="224" y2="368" stroke="#c5ced6" stroke-width="2.2"/>
-          <line x1="210" y1="276" x2="234" y2="356" stroke="#e7eef4" stroke-width="2.2"/>
-          <path d="M196 252 C 160 240, 120 210, 78 198" fill="none" stroke="#2a2e32" stroke-width="2"/>
-          <text x="48" y="188" fill="#1b2c24" font-size="14" font-family="Iowan Old Style, Palatino, Georgia, serif">NPK</text>
-        </g>
-        <g>
-          <path d="M392 250 H412 V330 L402 368 L392 330 Z" fill="#d7e4c8" stroke="#7d9a72"/>
-          <path d="M412 258 C 470 248, 540 230, 600 214" fill="none" stroke="#7d9a72" stroke-width="2"/>
-          <text x="470" y="206" fill="#1b2c24" font-size="14" font-family="Iowan Old Style, Palatino, Georgia, serif">Moisture</text>
+          <rect x="392" y="292" width="16" height="22" rx="2" fill="#e7efe0" stroke="#7d9a72"/>
+          <path d="M394 314 H406 V372 L400 402 L394 372 Z" fill="#d7e4c8" stroke="#6d8a62"/>
+          <path d="M398 322 H402 V366" stroke="#9aaf8e" stroke-width="1"/>
+          <path d="M408 298 H470 V200 H620" fill="none" stroke="#6d8a62" stroke-width="2.5"/>
+          <text x="430" y="192" fill="#1b2c24" font-size="14" font-family="Iowan Old Style, Palatino, Georgia, serif">Moisture</text>
         </g>
 
-        <!-- saucer, not returned -->
-        <ellipse cx="319" cy="486" rx="150" ry="14" fill="#6d5648"/>
-        <ellipse cx="319" cy="480" rx="132" ry="8" fill="#8a7262"/>
-        <ellipse cx="300" cy="482" rx="40" ry="4" fill="#7eb8d0" opacity="0.45"/>
-        <text x="470" y="478" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">saucer catches the miss</text>
-        <text x="470" y="494" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">and is not pumped back</text>
-
-        <!-- riser: water then a short feed slug, then water again -->
-        <path d="M560 760 V300 C 560 280, 500 292, 410 292" fill="none" stroke="#8eb8cc" stroke-width="6" stroke-linecap="round"/>
-        <path d="M560 520 V430" fill="none" stroke="#d7b36a" stroke-width="4" stroke-linecap="round"/>
-        <text x="572" y="470" fill="#d7b36a" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">feed, then</text>
-        <text x="572" y="486" fill="#8eb8cc" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">water flushes</text>
-        <text x="572" y="250" fill="#8eb8cc" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">one pipe</text>
+        <!-- later camera -->
+        <g opacity="0.6">
+          <rect x="560" y="176" width="28" height="16" rx="2" fill="#101814" stroke="#8d8478"/>
+          <circle cx="574" cy="184" r="3.5" fill="#6d7c74"/>
+          <text x="548" y="208" fill="#c9c0b2" font-size="9" font-family="Avenir Next, Segoe UI, sans-serif">LATER</text>
+        </g>
 
         <!-- wet base -->
-        <rect x="54" y="530" width="628" height="286" fill="#1c2e28"/>
-        <text x="70" y="554" fill="#d5ddd8" font-size="14" font-family="Iowan Old Style, Palatino, Georgia, serif">Base</text>
-        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="12" fill="#1b2c24">
-          <rect x="78" y="572" width="52" height="86" rx="5" fill="#d5e6ee" stroke="#8eb4c4"/>
-          <rect x="92" y="560" width="24" height="14" rx="2" fill="#6d7f74"/>
-          <text x="84" y="676">Water</text>
-          <rect x="168" y="584" width="44" height="74" rx="5" fill="#f3e2b4" stroke="#d7b36a"/>
-          <rect x="178" y="572" width="24" height="14" rx="2" fill="#6d7f74"/>
-          <text x="184" y="676">A</text>
-          <rect x="246" y="584" width="44" height="74" rx="5" fill="#e4efc8" stroke="#b7c98a"/>
-          <rect x="256" y="572" width="24" height="14" rx="2" fill="#6d7f74"/>
-          <text x="262" y="676">B</text>
+        <rect x="108" y="520" width="520" height="190" fill="#1c2e28"/>
+        <rect x="600" y="520" width="10" height="190" fill="#3e5649"/>
+        <text x="120" y="542" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">Wet side</text>
+        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="11" fill="#1b2c24">
+          <rect x="124" y="556" width="44" height="72" rx="4" fill="#d5e6ee" stroke="#8eb4c4"/>
+          <rect x="136" y="546" width="20" height="12" rx="2" fill="#6d7f74"/>
+          <ellipse cx="146" cy="590" rx="6" ry="3" fill="#c4623e" opacity="0.7"/>
+          <text x="128" y="644">Water</text>
+          <rect x="196" y="564" width="36" height="64" rx="4" fill="#f3e2b4" stroke="#d7b36a"/>
+          <rect x="204" y="554" width="20" height="12" rx="2" fill="#6d7f74"/>
+          <text x="208" y="644">A</text>
+          <rect x="258" y="564" width="36" height="64" rx="4" fill="#e4efc8" stroke="#b7c98a"/>
+          <rect x="266" y="554" width="20" height="12" rx="2" fill="#6d7f74"/>
+          <text x="270" y="644">B</text>
         </g>
+        <g fill="#4e6358">
+          <rect x="128" y="652" width="36" height="26" rx="3"/>
+          <rect x="196" y="652" width="36" height="26" rx="3"/>
+          <rect x="258" y="652" width="36" height="26" rx="3"/>
+        </g>
+        <g fill="none" stroke="#c9d4cc" stroke-width="1.6">
+          <circle cx="146" cy="665" r="7"/><circle cx="214" cy="665" r="7"/><circle cx="276" cy="665" r="7"/>
+        </g>
+        <path d="M146 628 V652" stroke="#8eb8cc" stroke-width="3" fill="none"/>
+        <path d="M214 628 V652" stroke="#d7b36a" stroke-width="2.4" fill="none"/>
+        <path d="M276 628 V652" stroke="#8aaa62" stroke-width="2.4" fill="none"/>
+        <path d="M146 678 V700 H520" stroke="#8eb8cc" stroke-width="4" fill="none"/>
+        <path d="M214 678 V692" stroke="#d7b36a" stroke-width="2.4" fill="none"/>
+        <path d="M276 678 V692" stroke="#8aaa62" stroke-width="2.4" fill="none"/>
+        <circle cx="146" cy="700" r="3.5" fill="#8eb8cc"/>
+        <circle cx="214" cy="700" r="3" fill="#d7b36a"/>
+        <circle cx="276" cy="700" r="3" fill="#8aaa62"/>
+        <path d="M520 700 V324" stroke="#8eb8cc" stroke-width="5" fill="none"/>
+        <path d="M520 560 V470" stroke="#d7b36a" stroke-width="3.5" fill="none"/>
+        <text x="530" y="520" fill="#d7b36a" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">feed slug</text>
+        <text x="530" y="640" fill="#8eb8cc" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">flush follows</text>
+
+        <!-- dry side / computer -->
+        <rect x="716" y="200" width="250" height="510" fill="#24362c" stroke="#4a6556"/>
+        <text x="732" y="226" fill="#d5ddd8" font-size="14" font-family="Iowan Old Style, Palatino, Georgia, serif">Dry side</text>
+        <rect x="742" y="250" width="150" height="92" rx="2" fill="#1f6b45" stroke="#163c2c"/>
+        <rect x="756" y="264" width="30" height="16" fill="#163c2c"/>
+        <rect x="794" y="266" width="42" height="20" fill="#174e34"/>
+        <circle cx="868" cy="270" r="3.5" fill="#7dcea0"/>
+        <rect x="876" y="286" width="14" height="10" fill="#cfd8d2"/>
+        <text x="756" y="326" fill="#d7e8dc" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">computer</text>
+        <rect x="892" y="278" width="26" height="18" rx="2" fill="#3d4650"/>
+        <rect x="912" y="282" width="14" height="10" fill="#e7eef4"/>
+        <rect x="916" y="285" width="6" height="4" fill="#3d6f9a"/>
+        <text x="742" y="366" fill="#c9c0b2" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">collects and controls</text>
+        <text x="742" y="384" fill="#7eafd4" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">adapter, then the cable</text>
+        <circle cx="948" cy="400" r="7" fill="#1a2822" stroke="#6d7f74"/>
+
+        <!-- ethernet slack on the table to the switch -->
+        <path d="M926 290 H960 V400 C 1000 410, 1040 500, 1080 700 C 1100 760, 1140 742, 1188 734" fill="none" stroke="url(#eth)" stroke-width="6" stroke-linecap="round"/>
+        <rect x="918" y="284" width="12" height="8" rx="1" fill="#e7eef4"/>
+        <text x="1040" y="680" fill="#3d6f9a" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">ethernet, with slack</text>
+
+        <!-- switch -->
         <g>
-          <g transform="translate(86,688)"><rect width="40" height="30" rx="4" fill="#4e6358"/><circle cx="20" cy="15" r="9" fill="none" stroke="#c9d4cc" stroke-width="2"/><circle cx="20" cy="9" r="2" fill="#c9d4cc"/><circle cx="26" cy="18" r="2" fill="#c9d4cc"/><circle cx="14" cy="18" r="2" fill="#c9d4cc"/></g>
-          <g transform="translate(170,688)"><rect width="40" height="30" rx="4" fill="#4e6358"/><circle cx="20" cy="15" r="9" fill="none" stroke="#c9d4cc" stroke-width="2"/><circle cx="20" cy="9" r="2" fill="#c9d4cc"/><circle cx="26" cy="18" r="2" fill="#c9d4cc"/><circle cx="14" cy="18" r="2" fill="#c9d4cc"/></g>
-          <g transform="translate(248,688)"><rect width="40" height="30" rx="4" fill="#4e6358"/><circle cx="20" cy="15" r="9" fill="none" stroke="#c9d4cc" stroke-width="2"/><circle cx="20" cy="9" r="2" fill="#c9d4cc"/><circle cx="26" cy="18" r="2" fill="#c9d4cc"/><circle cx="14" cy="18" r="2" fill="#c9d4cc"/></g>
+          <rect x="1188" y="708" width="176" height="48" rx="3" fill="#2c3338" stroke="#1b2024"/>
+          <rect x="1200" y="722" width="16" height="12" fill="#111"/>
+          <rect x="1220" y="722" width="16" height="12" fill="#111" stroke="#7eafd4"/>
+          <rect x="1240" y="722" width="16" height="12" fill="#111"/>
+          <rect x="1260" y="722" width="16" height="12" fill="#111" stroke="#7eafd4"/>
+          <rect x="1280" y="722" width="16" height="12" fill="#111"/>
+          <circle cx="1207" cy="742" r="2" fill="#7dcea0"/>
+          <circle cx="1227" cy="742" r="2" fill="#7dcea0"/>
+          <circle cx="1267" cy="742" r="2" fill="#7dcea0"/>
+          <text x="1310" y="738" fill="#d5ddd8" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">switch</text>
         </g>
-        <g fill="none" stroke-linecap="round">
-          <path d="M104 658 V688" stroke="#8eb8cc" stroke-width="3"/>
-          <path d="M190 658 V688" stroke="#d7b36a" stroke-width="2.5"/>
-          <path d="M268 658 V688" stroke="#8aaa62" stroke-width="2.5"/>
-          <path d="M106 718 V748 H560" stroke="#8eb8cc" stroke-width="5"/>
-          <path d="M190 718 V738" stroke="#d7b36a" stroke-width="2.5"/>
-          <path d="M268 718 V738" stroke="#8aaa62" stroke-width="2.5"/>
-        </g>
-        <g fill="#8eb8cc">
-          <polygon points="182,732 198,732 190,744"/><rect x="184" y="726" width="12" height="3"/>
-          <polygon points="260,732 276,732 268,744"/><rect x="262" y="726" width="12" height="3"/>
-          <circle cx="106" cy="748" r="4"/>
-          <circle cx="190" cy="748" r="3.5"/>
-          <circle cx="268" cy="748" r="3.5"/>
-        </g>
-        <text x="300" y="742" fill="#d5ddd8" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">join, then one riser</text>
+        <rect x="1176" y="726" width="14" height="8" rx="1" fill="#e7eef4"/>
 
-        <!-- computer -->
-        <rect x="780" y="160" width="280" height="520" rx="4" fill="#24362c" stroke="#4a6556"/>
-        <text x="798" y="188" fill="#d5ddd8" font-size="15" font-family="Iowan Old Style, Palatino, Georgia, serif">Dry side</text>
-        <rect x="808" y="220" width="168" height="100" rx="3" fill="#1f6b45"/>
-        <rect x="824" y="236" width="34" height="18" fill="#163c2c"/>
-        <rect x="868" y="238" width="46" height="24" fill="#174e34"/>
-        <circle cx="948" cy="242" r="4" fill="#7dcea0"/>
-        <text x="824" y="300" fill="#d7e8dc" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">computer</text>
-        <rect x="976" y="250" width="30" height="22" rx="2" fill="#3d4650"/>
-        <rect x="1000" y="254" width="16" height="14" fill="#d7e1ea"/>
-        <text x="808" y="348" fill="#c9c0b2" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">collects and controls</text>
-        <path d="M78 198 H36 V560 H808" fill="none" stroke="#2a2e32" stroke-width="1.6"/>
-        <path d="M600 214 H748 V250 H808" fill="none" stroke="#7d9a72" stroke-width="1.6"/>
-        <path d="M808 270 H740 V730 H120" fill="none" stroke="#9a7340" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <!-- second cable to server -->
+        <path d="M1276 728 C 1320 728, 1360 700, 1420 690 C 1480 680, 1520 676, 1568 684" fill="none" stroke="url(#eth)" stroke-width="6" stroke-linecap="round"/>
+        <rect x="1556" y="678" width="14" height="8" rx="1" fill="#e7eef4"/>
 
-        <!-- ethernet to switch -->
-        <circle cx="1048" cy="360" r="8" fill="#1a2822" stroke="#6d7f74"/>
-        <path d="M1016 262 H1060 V360 C 1120 380, 1160 560, 1200 780 C 1240 860, 1288 848, 1360 836" fill="none" stroke="url(#cable)" stroke-width="5" stroke-linecap="round"/>
-        <text x="1120" y="700" fill="#3d6f9a" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">ethernet</text>
+        <!-- server -->
         <g>
-          <rect x="1348" y="808" width="180" height="52" rx="4" fill="#2c3338"/>
-          <rect x="1362" y="824" width="14" height="12" fill="#1b2024"/>
-          <rect x="1380" y="824" width="14" height="12" fill="#1b2024" stroke="#7eafd4"/>
-          <rect x="1398" y="824" width="14" height="12" fill="#1b2024"/>
-          <rect x="1416" y="824" width="14" height="12" fill="#1b2024"/>
-          <rect x="1434" y="824" width="14" height="12" fill="#1b2024"/>
-          <circle cx="1368" cy="844" r="2" fill="#7dcea0"/>
-          <circle cx="1386" cy="844" r="2" fill="#7dcea0"/>
-          <text x="1456" y="842" fill="#d5ddd8" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">switch</text>
-          <path d="M1528 834 H1572" stroke="#3d6f9a" stroke-width="4"/>
-          <text x="1350" y="878" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">beside the box</text>
+          <rect x="1568" y="600" width="210" height="140" rx="4" fill="#1c2228" stroke="#0e1216"/>
+          <rect x="1584" y="616" width="178" height="8" fill="#2a333c"/>
+          <g fill="#2a333c">
+            <rect x="1584" y="632" width="6" height="70"/>
+            <rect x="1594" y="632" width="6" height="70"/>
+            <rect x="1604" y="632" width="6" height="70"/>
+            <rect x="1614" y="632" width="6" height="70"/>
+          </g>
+          <circle cx="1592" cy="718" r="4" fill="#7dcea0"/>
+          <rect x="1688" y="676" width="18" height="12" rx="1" fill="#111" stroke="#7eafd4"/>
+          <text x="1712" y="686" fill="#d5ddd8" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">server</text>
+          <text x="1584" y="756" fill="#8d98a3" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">keeps the record</text>
+          <path d="M1670 740 V792" stroke="#1b2024" stroke-width="3"/>
         </g>
+        <text x="1360" y="660" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">second cable</text>
 
-        <rect x="70" y="838" width="30" height="10" fill="#1a2822"/>
-        <rect x="640" y="838" width="30" height="10" fill="#1a2822"/>
+        <!-- cabinet feet -->
+        <rect x="118" y="736" width="28" height="12" fill="#1a2822"/>
+        <rect x="660" y="736" width="28" height="12" fill="#1a2822"/>
       </svg>
-      <figcaption>One pipe up. The ring spreads the drink better than a single hole, and still not evenly: each outlet wets a finger downward, dry gaps remain, and the outlets nearest the pipe catch more of the feed. The far side gets more of the flush. The saucer is a catch, not a return.</figcaption>
+      <figcaption>The box on a wooden table. Probes cable into the dry side. One pipe feeds a ring on the soil, unevenly. Ethernet leaves the computer, crosses the table to a switch, and a second cable ends at the server. The server keeps the record. It does not run the pumps.</figcaption>
     </figure>
 
     <div class="jobs">
       <article class="job">
         <h2>Light</h2>
-        <p>The hood keeps the day you set. If the bay gets warm, the light backs off.</p>
+        <p>A bar of diodes keeps the day. If the bay gets warm, it backs off.</p>
       </article>
       <article class="job">
-        <h2>Water</h2>
-        <p>A dry pot gets a slow ring of drops on the soil. The cabinet waits, checks, and stops before it floods.</p>
+        <h2>Drink</h2>
+        <p>Three bottles, one pipe, a ring on the soil. Near outlets get more of the feed. Dry gaps remain.</p>
       </article>
       <article class="job">
-        <h2>Feed</h2>
-        <p>A and B join that same pipe, only when a reading is short. The near outlets get more of that dose. Water follows and flushes the rest.</p>
+        <h2>Probes</h2>
+        <p>A three-prong probe and a flat blade. Their cables are clipped to the wall and end at the computer.</p>
       </article>
       <article class="job">
         <h2>Record</h2>
-        <p>The computer collects and decides. The cable on the table carries that record to the switch.</p>
+        <p>The computer decides. The switch only joins the cable. The server at the end of the table keeps what was sent.</p>
       </article>
     </div>
-
     <footer>Flower Lab · one pot · on the table</footer>
   </div>
 </body>
