@@ -180,11 +180,16 @@
         <ellipse cx="319" cy="300" rx="128" ry="12" fill="#4a3428"/>
         <!-- cut face of soil -->
         <path d="M191 300 H447 L478 455 H160 Z" fill="#5a4032"/>
-        <!-- dry core under the stem -->
-        <path d="M250 308 H390 L370 390 H270 Z" fill="#6b5040"/>
-        <!-- wet ring soaking down and inward -->
-        <path d="M200 312 C 210 360, 230 410, 270 430 C 300 444, 340 444, 368 430 C 410 408, 430 360, 440 312 C 400 336, 360 360, 319 366 C 270 360, 230 336, 200 312 Z" fill="#3e6f86" opacity="0.55"/>
-        <path d="M214 318 C 230 370, 270 400, 319 404 C 370 400, 408 368, 424 318" fill="none" stroke="#7eb8d0" stroke-width="3" opacity="0.7"/>
+        <!-- dry gaps between fingers, and under the stem -->
+        <path d="M250 308 H390 L372 400 H268 Z" fill="#6b5040"/>
+        <path d="M230 330 L248 430 L210 448 L198 340 Z" fill="#6a4e3c" opacity="0.65"/>
+        <path d="M390 330 L408 448 L372 430 L360 340 Z" fill="#6a4e3c" opacity="0.55"/>
+        <!-- separate wet fingers, not one sponge. Right fingers carry more feed. -->
+        <path d="M228 308 C 220 350, 214 400, 222 440 C 236 428, 246 390, 242 312 Z" fill="#3e6f86" opacity="0.45"/>
+        <path d="M268 304 C 262 348, 258 392, 270 428 C 284 410, 286 360, 280 308 Z" fill="#3e6f86" opacity="0.4"/>
+        <path d="M352 304 C 358 360, 366 410, 378 438 C 392 400, 390 350, 382 308 Z" fill="#c4a15a" opacity="0.55"/>
+        <path d="M400 308 C 408 360, 418 410, 424 446 C 438 420, 432 360, 418 310 Z" fill="#d7b36a" opacity="0.6"/>
+        <path d="M310 306 C 306 340, 308 370, 316 400 C 328 372, 330 340, 326 306 Z" fill="#5a8fa6" opacity="0.35"/>
         <!-- roots in the wet band -->
         <g fill="none" stroke="#c4a48a" stroke-width="1.4" stroke-linecap="round">
           <path d="M300 268 V330 C 280 360, 240 390, 210 410"/>
@@ -192,27 +197,27 @@
           <path d="M300 310 C 286 340, 300 370, 286 400"/>
           <path d="M292 340 C 250 350, 220 360, 200 378"/>
         </g>
-        <text x="500" y="360" fill="#3d7f96" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">wet ring</text>
-        <text x="500" y="378" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">soaks down</text>
-        <text x="500" y="396" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">around the roots</text>
-        <text x="186" y="340" fill="#e7d2c4" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">stem stays drier</text>
+        <text x="500" y="348" fill="#d7b36a" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">near outlets</text>
+        <text x="500" y="366" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">catch more feed</text>
+        <text x="500" y="390" fill="#3d7f96" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">far outlets</text>
+        <text x="500" y="408" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">get more of the flush</text>
+        <text x="168" y="430" fill="#e7d2c4" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">dry gaps stay</text>
 
         <!-- ring on the soil, six outlets, drops on soil -->
         <ellipse cx="319" cy="292" rx="92" ry="14" fill="none" stroke="#9bb0b8" stroke-width="4"/>
-        <g fill="#7eb8d0">
-          <circle cx="236" cy="296" r="3.4"/>
-          <circle cx="268" cy="286" r="3"/>
-          <circle cx="319" cy="282" r="3.2"/>
-          <circle cx="370" cy="286" r="3"/>
-          <circle cx="402" cy="296" r="3.4"/>
-          <circle cx="319" cy="304" r="2.6"/>
-          <circle cx="248" cy="312" r="2.2"/>
-          <circle cx="300" cy="318" r="2"/>
-          <circle cx="352" cy="314" r="2.1"/>
-          <circle cx="390" cy="310" r="1.8"/>
+        <g>
+          <circle cx="236" cy="296" r="2.4" fill="#7eb8d0"/>
+          <circle cx="268" cy="286" r="2.2" fill="#7eb8d0"/>
+          <circle cx="319" cy="282" r="2.6" fill="#9ec9dc"/>
+          <circle cx="370" cy="286" r="3.4" fill="#d7b36a"/>
+          <circle cx="402" cy="296" r="3.8" fill="#e0c07a"/>
+          <circle cx="319" cy="304" r="2" fill="#7eb8d0"/>
+          <circle cx="248" cy="314" r="1.6" fill="#7eb8d0"/>
+          <circle cx="388" cy="312" r="2.4" fill="#d7b36a"/>
+          <circle cx="408" cy="308" r="2" fill="#e0c07a"/>
         </g>
-        <text x="430" y="286" fill="#3d7f96" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">six outlets</text>
-        <text x="430" y="304" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">on the soil, off the stem</text>
+        <text x="430" y="270" fill="#9bb0b8" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">ring, not even</text>
+        <text x="430" y="288" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">drops hit soil, not leaves</text>
 
         <!-- probes -->
         <g>
@@ -315,7 +320,7 @@
         <rect x="70" y="838" width="30" height="10" fill="#1a2822"/>
         <rect x="640" y="838" width="30" height="10" fill="#1a2822"/>
       </svg>
-      <figcaption>One pipe from the base. At the soil it becomes a ring of slow outlets, off the stem and off the leaves. The cut face is the wet ring sinking toward the roots. The saucer is a catch, not a return. The computer sends the record down the cable to the switch.</figcaption>
+      <figcaption>One pipe up. The ring spreads the drink better than a single hole, and still not evenly: each outlet wets a finger downward, dry gaps remain, and the outlets nearest the pipe catch more of the feed. The far side gets more of the flush. The saucer is a catch, not a return.</figcaption>
     </figure>
 
     <div class="jobs">
@@ -329,7 +334,7 @@
       </article>
       <article class="job">
         <h2>Feed</h2>
-        <p>A and B join that same pipe, only when a reading is short. Water keeps running after them so the tube empties onto the ring.</p>
+        <p>A and B join that same pipe, only when a reading is short. The near outlets get more of that dose. Water follows and flushes the rest.</p>
       </article>
       <article class="job">
         <h2>Record</h2>
