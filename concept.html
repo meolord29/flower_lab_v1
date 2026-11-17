@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flower Lab is a tabletop cabinet for one plant. A plan drawing with the jobs set around it: light, water, NPK, and feed.">
+  <meta name="description" content="Flower Lab is a tabletop cabinet for one plant. An Orange Pi Zero 3 runs the cabinet and posts every reading to the main server.">
   <title>Flower Lab — cabinet plan</title>
   <style>
     :root {
@@ -72,7 +72,7 @@
     .sheet {
       display: grid;
       grid-template-columns: minmax(190px, 1fr) minmax(300px, 460px) minmax(190px, 1fr);
-      grid-template-rows: 1fr 1fr auto;
+      grid-template-rows: 1fr 1fr auto auto;
       gap: 1.1rem 1.6rem;
       align-items: center;
       padding: 1.4rem 1.3rem 1rem;
@@ -101,6 +101,18 @@
     .n2 { grid-column: 3; grid-row: 1; align-self: start; padding-top: 4.5rem; }
     .n3 { grid-column: 1; grid-row: 2; align-self: end; padding-bottom: 2rem; }
     .n4 { grid-column: 3; grid-row: 2; align-self: end; padding-bottom: 0.4rem; }
+    .n5 {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      text-align: left;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+    .n5 h2 { margin-top: 0; }
 
     .num {
       display: inline-grid;
@@ -123,7 +135,7 @@
 
     .block {
       grid-column: 1 / -1;
-      grid-row: 3;
+      grid-row: 4;
       display: flex;
       justify-content: space-between;
       gap: 1rem;
@@ -149,7 +161,7 @@
         outline-offset: 3px;
       }
 
-      .plan, .n1, .n2, .n3, .n4, .block {
+      .plan, .n1, .n2, .n3, .n4, .n5, .block {
         grid-column: 1;
         grid-row: auto;
       }
@@ -171,7 +183,7 @@
       </div>
       <p class="meta">Plan</p>
     </header>
-    <p class="intro">One cabinet. The drawing is the object. The notes around it are what it does.</p>
+    <p class="intro">One cabinet. The drawing is the object. The notes around it are what it does. Readings go to the main server.</p>
 
     <div class="sheet">
       <article class="note left n1">
@@ -189,7 +201,7 @@
       <figure class="plan">
         <svg class="drawing" viewBox="0 0 440 700" role="img" aria-labelledby="planTitle planDesc">
           <title id="planTitle">Plan of the Flower Lab cabinet</title>
-          <desc id="planDesc">Front view of the one-pot cabinet. Numbered marks show the light, the water probe, the NPK probe, and the feed bottles.</desc>
+          <desc id="planDesc">Front view of the one-pot cabinet. Numbered marks show the light, the water probe, the NPK probe, the feed bottles, and the Orange Pi Zero 3.</desc>
           <defs>
             <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
@@ -262,7 +274,8 @@
 
           <rect x="96" y="500" width="204" height="96" fill="#283e34"/>
           <line x1="198" y1="516" x2="198" y2="580" stroke="#3e5649"/>
-          <circle cx="146" cy="548" r="3.5" fill="#7dcea0"/>
+          <rect x="122" y="532" width="40" height="24" rx="2" fill="#1f6b45"/>
+          <circle cx="142" cy="544" r="3.5" fill="#7dcea0"/>
           <g transform="translate(214,528)">
             <rect width="14" height="28" rx="2" fill="#d5e6ee"/>
             <rect x="20" width="14" height="28" rx="2" fill="#e7c98a"/>
@@ -281,6 +294,8 @@
             <text x="104" y="380">3</text>
             <circle cx="286" cy="542" r="11" fill="#c4623e"/>
             <text x="282" y="546">4</text>
+            <circle cx="64" cy="544" r="11" fill="#c4623e"/>
+            <text x="60" y="548">5</text>
           </g>
         </svg>
       </figure>
@@ -297,14 +312,22 @@
         <p>When a reading falls short, the cabinet doses A or B. It does not feed when the soil is already in range.</p>
       </article>
 
+      <article class="note n5">
+        <span class="num">5</span>
+        <div>
+          <h2>Report</h2>
+          <p>An Orange Pi Zero 3 sits in the dry side. It posts every reading and every dose to the main server. The server collects them and keeps the aggregate.</p>
+        </div>
+      </article>
+
       <div class="block">
         <span>Flower Lab</span>
         <span>One pot · about 40 × 70 cm</span>
-        <span>Pi stays in the dry side</span>
+        <span>Orange Pi Zero 3 · POST</span>
       </div>
     </div>
 
-    <footer>Nothing leaves the room. The page you use lives on the Raspberry Pi.</footer>
+    <footer>The cabinet acts on its own. The record lives on the main server.</footer>
   </div>
 </body>
 </html>
