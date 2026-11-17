@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Flower Lab system diagram: one plant, peristaltic pumps, an Orange Pi Zero 3, and a later camera that runs YOLO for leaf color and bloom tracking.">
-  <title>Flower Lab — system diagram</title>
+  <title>Flower Lab</title>
   <style>
     :root {
       --paper: #f3eee4;
@@ -113,7 +113,103 @@
       font-size: 0.85rem;
     }
 
-    footer a { color: inherit; }
+    footer a, nav a { color: inherit; }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.1rem;
+      margin: 0 0 1.4rem;
+      padding: 0;
+    }
+
+    nav a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0.2rem 0 0.7rem;
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      max-width: 12ch;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.45rem;
+      color: var(--brass);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    section { padding: 2.4rem 0 0.2rem; }
+
+    section h2 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+    }
+
+    .lead {
+      max-width: 40rem;
+      margin: 0 0 1.1rem;
+      color: var(--green);
+    }
+
+    .cards, .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .card, .table-wrap {
+      background: var(--sheet);
+      border: 1px solid var(--line);
+      padding: 1rem 1.05rem 1.1rem;
+    }
+
+    .card h3 {
+      margin: 0 0 0.4rem;
+      font-family: "Iowan Old Style", Palatino, Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .card p, .prose p { margin: 0 0 0.7rem; }
+    .card p:last-child, .prose p:last-child { margin-bottom: 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.45rem 0.6rem 0.45rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    code {
+      font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+    }
+
+    @media (max-width: 800px) {
+      .cards, .split { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -126,11 +222,20 @@
         </svg>
         Flower Lab
       </div>
-      <p class="meta">Diagram</p>
+      <p class="meta">Product</p>
     </header>
-    <p class="intro">One plant, the wet side that feeds it, and the dry side that decides. The Orange Pi Zero 3 never powers a pump or the light.</p>
+    <h1>A cabinet for one plant.</h1>
+    <p class="intro">It keeps the light, waters when the soil is dry, and doses A or B only when nitrogen, phosphorus, or potassium is short. An Orange Pi Zero 3 decides. The main server only collects.</p>
+    <nav>
+      <a href="#diagram">Diagram</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#control">Control</a>
+      <a href="#records">Records</a>
+      <a href="#api">API</a>
+      <a href="#later">Later</a>
+    </nav>
 
-    <figure class="sheet">
+    <figure class="sheet" id="diagram">
       <svg class="drawing" viewBox="0 0 1240 860" role="img" aria-labelledby="dTitle dDesc">
         <title id="dTitle">Flower Lab system diagram</title>
         <desc id="dDesc">A plant in a pot, fed by three peristaltic pumps through one drip line. An Orange Pi Zero 3 reads moisture on an ADS1115, NPK over USB-RS485, and a float and temperature on GPIO. A PCA9685 times a MOSFET board that switches a separate 12 volt supply. Later, a CSI camera on the same board runs a small YOLO model to track leaf color and bloom.</desc>
@@ -358,8 +463,104 @@
         <li><i class="signal"></i>Signal</li>
         <li><i class="logic"></i>POST</li>
       </ul>
-      <figcaption>Dose by pump time, then wait and read moisture again. The float switch stops a dry run. NPK only decides whether A or B pulses — it is not a tight loop. If the soil is already in range, neither pump runs. Later, a CSI camera on the Zero 3 runs a small YOLO model over the leaves: yellowing, browning, spots, and bloom stage. A frame every few minutes, not live video — the board has no NPU. Those events are posted too. The camera does not dose.</figcaption>
+      <figcaption>Wet side, plant, dry side. Fluid is blue, 12 V is red, signals are dashed. The green line is the POST. About 40 cm wide and 70 cm tall.</figcaption>
     </figure>
+
+    <section id="jobs">
+      <p class="eyebrow">Jobs</p>
+      <h2>Four things it is for.</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Light</h3>
+          <p>You set hours and brightness. Channel 0 of the PCA9685 dims the 12 V bar. If the bay is too warm, the duty falls, including to off.</p>
+        </article>
+        <article class="card">
+          <h3>Water</h3>
+          <p>A capacitive probe on the ADS1115 asks for a drink. The water pump runs for a few seconds, then the cabinet waits and reads again. It stops if the soil is wet, the float says the tank is empty, or the day's cap is hit.</p>
+        </article>
+        <article class="card">
+          <h3>Nutrients</h3>
+          <p>The RS485 probe reads nitrogen, phosphorus, and potassium a few times a day. Short on nitrogen, pulse A. Short on phosphorus or potassium, pulse B. In range, pulse neither. A and B join the water line. They never run alone.</p>
+        </article>
+        <article class="card">
+          <h3>Report</h3>
+          <p>Every reading and every dose is posted. The server stores them and keeps hourly and daily aggregates. If the POST fails, the cabinet still acts and retries with the same id.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="control">
+      <p class="eyebrow">Control</p>
+      <h2>The Pi decides. It does not power anything.</h2>
+      <p class="lead">Pumps and the LED sit on their own 12 V supply, switched by a MOSFET board. Ground is common. 12 V never touches a pin. On boot, all four channels are off.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Function</th><th>Path</th><th>Rule</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Light</td><td>PCA9685 ch.0 → MOSFET → 12 V bar</td><td>Schedule, then thermal backoff</td></tr>
+            <tr><td>Water</td><td>ch.1 → 80–150 ml/min peristaltic</td><td>One timed pulse, then wait. Float and daily cap can hold it</td></tr>
+            <tr><td>A and B</td><td>ch.2 and ch.3 → 10–30 ml/min, check valves into the water line</td><td>Only while water is moving, and only after a cooldown</td></tr>
+            <tr><td>Moisture</td><td>Capacitive probe → ADS1115 → I2C</td><td>A failed read means do not water</td></tr>
+            <tr><td>NPK</td><td>Modbus → USB–RS485</td><td>A few times a day. A failed read means do not dose</td></tr>
+            <tr><td>Float, temperature</td><td>GPIO</td><td>Empty tank holds every pump. Heat holds the light</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead" style="margin-top: 1rem;">Setpoints live on the Pi: on and off times, light duty, moisture band, pulse lengths, NPK lows, and the hours between nutrient doses. The server cannot open a MOSFET.</p>
+    </section>
+
+    <section id="records">
+      <p class="eyebrow">Records</p>
+      <h2>What leaves the cabinet.</h2>
+      <div class="split">
+        <article class="card">
+          <h3>Readings</h3>
+          <p><code>moisture</code>, <code>temperature</code>, <code>npk</code>, <code>light</code>, <code>float</code>. Vision is added later. NPK is omitted on cycles that did not read it.</p>
+          <p>Each row has an id, a cabinet id, and <code>recorded_at</code> from the Pi. The server adds <code>received_at</code>.</p>
+        </article>
+        <article class="card">
+          <h3>Doses and faults</h3>
+          <p>A dose is a pulse or a light change: channel, seconds or duty, and a reason such as <code>moisture_low</code>, <code>n_short</code>, <code>too_warm</code>, <code>float_empty</code>, or <code>daily_cap</code>.</p>
+          <p>A skipped pulse is not a dose. A fault names the source: ADC, NPK, PWM board, float, temperature, or, later, the camera.</p>
+        </article>
+      </div>
+      <p class="lead" style="margin-top: 1rem;">Aggregates are computed on the server, by hour and by day: moisture average, temperature range, light-on time, water and concentrate seconds, and the last NPK sample. The cabinet does not send them.</p>
+    </section>
+
+    <section id="api">
+      <p class="eyebrow">API</p>
+      <h2>One POST. No remote pump.</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Call</th><th>Who</th><th>What</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>POST /v1/cabinets/{id}/batch</code></td><td>Cabinet</td><td>Readings, doses, and faults in one body. <code>202</code> counts new rows and duplicates.</td></tr>
+            <tr><td><code>GET /v1/cabinets/{id}/aggregates</code></td><td>A person</td><td>Hour or day buckets. The control loop never calls this.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cards" style="margin-top: 0.8rem;">
+        <article class="card">
+          <h3>Retries</h3>
+          <p>The id is chosen on the Pi and reused if the call times out. A repeated id is the same row, not a second dose. A <code>400</code> is dropped. A <code>401</code>, <code>404</code>, or <code>5xx</code> stays in the queue.</p>
+        </article>
+        <article class="card">
+          <h3>Not in this version</h3>
+          <p>No endpoint turns a pump on. No setpoint is written from the server. Later vision posts a label and a confidence, not the frame.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="later">
+      <p class="eyebrow">Later</p>
+      <h2>A camera for the leaves, not for dosing.</h2>
+      <p class="lead">A CSI camera on the Zero 3, because USB is the RS485 adapter. A small YOLO model runs on the CPU, a frame every few minutes. The board has no NPU. It tracks leaf yellowing, browning, spots, and bloom stage, and those events are posted. The water and nutrient loops do not read it.</p>
+      <p class="intro">Longer notes, including the setpoint list and the error table, are in <a href="docs/README.md">docs</a>.</p>
+    </section>
 
     <footer>Flower Lab · one pot · Orange Pi Zero 3 · about 40 × 70 cm · <a href="docs/README.md">docs</a></footer>
   </div>

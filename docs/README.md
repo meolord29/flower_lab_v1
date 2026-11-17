@@ -2,7 +2,7 @@
 
 The cabinet is one pot. An Orange Pi Zero 3 runs the loop and posts readings to the main server. The server collects and aggregates. It does not drive the pumps.
 
-The picture is [concept.html](../concept.html). These notes are the modules behind it.
+The product page is [concept.html](../concept.html). These notes are the longer form of the same design.
 
 | Module | What it fixes |
 | --- | --- |
