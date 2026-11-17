@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flower Lab is a tabletop cabinet for one plant. It keeps a light schedule, waters when the soil is dry, and reads NPK in the pot.">
-  <title>Flower Lab — a cabinet that keeps one plant</title>
+  <meta name="description" content="Flower Lab is a tabletop cabinet for one plant. A plan drawing with the jobs set around it: light, water, NPK, and feed.">
+  <title>Flower Lab — cabinet plan</title>
   <style>
     :root {
       --paper: #f3eee4;
-      --paper-deep: #e8e0d1;
-      --card: #faf7f1;
+      --sheet: #faf7f1;
       --ink: #1b2c24;
       --muted: #5c6b62;
       --line: #d5ccbb;
@@ -24,22 +23,22 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(900px 420px at 100% -8%, #efe4cf 0%, transparent 60%),
+        radial-gradient(1000px 480px at 80% -10%, #efe4cf 0%, transparent 55%),
         var(--paper);
       font-family: "Avenir Next", "Avenir", "Segoe UI", sans-serif;
-      font-size: 1.05rem;
-      line-height: 1.5;
+      font-size: 1.02rem;
+      line-height: 1.45;
     }
 
-    h1, h2, h3 {
+    h1, h2 {
       font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
       font-weight: 500;
-      letter-spacing: -0.025em;
-      line-height: 1.05;
+      letter-spacing: -0.03em;
+      line-height: 1;
     }
 
     .wrap {
-      width: min(980px, calc(100% - 2.5rem));
+      width: min(1180px, calc(100% - 2rem));
       margin: 0 auto;
     }
 
@@ -47,8 +46,7 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding: 1.3rem 0 0.6rem;
-      border-bottom: 1px solid var(--line);
+      padding: 1.2rem 0 0.7rem;
     }
 
     .brand {
@@ -61,124 +59,103 @@
       margin: 0;
       color: var(--muted);
       font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: end;
-      padding: 3.2rem 0 2.6rem;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.9rem;
-      color: var(--brass);
-      font-size: 0.75rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(2.8rem, 6vw, 4.6rem);
-      max-width: 10ch;
-    }
-
-    .lead {
-      max-width: 34rem;
-      margin: 1.1rem 0 0;
+    .intro {
+      margin: 0 0 1rem;
+      max-width: 36rem;
       color: var(--green);
-      font-size: 1.15rem;
     }
 
-    figure { margin: 0; }
-
-    figcaption {
-      margin-top: 0.6rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .stage {
+    .sheet {
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
+      grid-template-columns: minmax(190px, 1fr) minmax(300px, 460px) minmax(190px, 1fr);
+      grid-template-rows: 1fr 1fr auto;
+      gap: 1.1rem 1.6rem;
       align-items: center;
-    }
-
-    .zones {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .zones li {
-      display: grid;
-      grid-template-columns: 1.5rem 1fr;
-      gap: 0.35rem;
-    }
-
-    .zones strong {
-      display: block;
-      font-family: "Iowan Old Style", Palatino, Georgia, serif;
-      font-size: 1.2rem;
-      font-weight: 500;
-    }
-
-    .zones .n { color: var(--terra); font-size: 0.75rem; }
-    .zones p { margin: 0.1rem 0 0; color: var(--muted); font-size: 0.9rem; }
-
-    .band {
-      background: var(--paper-deep);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 2.6rem 0;
-    }
-
-    .band h2 {
-      margin: 0 0 1.2rem;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-    }
-
-    .goals {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem;
-    }
-
-    .card {
-      background: var(--card);
+      padding: 1.4rem 1.3rem 1rem;
+      background: var(--sheet);
       border: 1px solid var(--line);
-      padding: 1.15rem 1.15rem 1.25rem;
+      outline: 1px solid var(--line);
+      outline-offset: 5px;
     }
 
-    .card h3 {
-      margin: 0.35rem 0 0.6rem;
-      font-size: 1.6rem;
-    }
-
-    .card p { margin: 0; }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.2rem 0 1.8rem;
-      color: var(--muted);
-      font-size: 0.85rem;
+    .plan {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      margin: 0;
     }
 
     .drawing { width: 100%; height: auto; display: block; }
 
-    @media (max-width: 800px) {
-      .hero, .goals, .stage { grid-template-columns: 1fr; }
-      h1 { max-width: none; }
-      footer { flex-direction: column; }
+    .note {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .note.left { text-align: right; }
+    .n1 { grid-column: 1; grid-row: 1; align-self: start; padding-top: 1.5rem; }
+    .n2 { grid-column: 3; grid-row: 1; align-self: start; padding-top: 4.5rem; }
+    .n3 { grid-column: 1; grid-row: 2; align-self: end; padding-bottom: 2rem; }
+    .n4 { grid-column: 3; grid-row: 2; align-self: end; padding-bottom: 0.4rem; }
+
+    .num {
+      display: inline-grid;
+      place-items: center;
+      width: 1.45rem;
+      height: 1.45rem;
+      border-radius: 50%;
+      background: var(--terra);
+      color: #faf7f1;
+      font-size: 0.75rem;
+      letter-spacing: 0;
+    }
+
+    .note h2 {
+      margin: 0.45rem 0 0.4rem;
+      font-size: 1.7rem;
+    }
+
+    .note p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    .block {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 0.4rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      padding: 1.3rem 0 1.6rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 860px) {
+      .sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        outline-offset: 3px;
+      }
+
+      .plan, .n1, .n2, .n3, .n4, .block {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .note.left, .n1, .n2, .n3, .n4 { text-align: left; padding: 0; }
+      .plan { order: -1; }
     }
   </style>
 </head>
@@ -192,141 +169,142 @@
         </svg>
         Flower Lab
       </div>
-      <p class="meta">Concept</p>
+      <p class="meta">Plan</p>
     </header>
+    <p class="intro">One cabinet. The drawing is the object. The notes around it are what it does.</p>
 
-    <section class="hero">
-      <div>
-        <p class="eyebrow">One pot · one cabinet</p>
-        <h1>A tabletop cabinet for one plant.</h1>
-        <p class="lead">It keeps the light, waters when the soil is dry, and reads nitrogen, phosphorus, and potassium in the pot.</p>
-      </div>
+    <div class="sheet">
+      <article class="note left n1">
+        <span class="num">1</span>
+        <h2>Light</h2>
+        <p>The hood holds the hours and brightness you set. If the bay gets too warm, the light backs off.</p>
+      </article>
 
-      <figure>
-        <div class="stage">
-          <svg class="drawing" viewBox="0 0 420 640" role="img" aria-labelledby="frontTitle frontDesc">
-            <title id="frontTitle">Front view of the Flower Lab cabinet</title>
-            <desc id="frontDesc">A tabletop cabinet with a light hood, one plant, a moisture probe, and a three-prong NPK probe in the soil.</desc>
-            <defs>
-              <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
-                <stop offset="1" stop-color="#ffffff" stop-opacity="0.04"/>
-              </linearGradient>
-              <radialGradient id="glow" cx="50%" cy="40%" r="60%">
-                <stop offset="0" stop-color="#f6e7b0" stop-opacity="0.8"/>
-                <stop offset="1" stop-color="#f6e7b0" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="pot" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#d47852"/>
-                <stop offset="1" stop-color="#a84c30"/>
-              </linearGradient>
-            </defs>
+      <article class="note n2">
+        <span class="num">2</span>
+        <h2>Water</h2>
+        <p>A probe in the soil asks for a drink. The cabinet gives a small one, then stops if the soil is wet, the tank is low, or the day is capped.</p>
+      </article>
 
-            <ellipse cx="198" cy="612" rx="110" ry="11" fill="#1b2c24" opacity="0.1"/>
-            <polygon points="86,58 318,58 352,36 120,36" fill="#3e5649"/>
-            <polygon points="318,58 352,36 352,532 318,554" fill="#24362c"/>
-            <rect x="86" y="58" width="232" height="496" fill="#31483d"/>
-            <rect x="102" y="76" width="200" height="378" fill="#16241f"/>
-            <rect x="122" y="92" width="160" height="10" rx="5" fill="#f4e6b4"/>
-            <ellipse cx="202" cy="142" rx="72" ry="30" fill="url(#glow)"/>
+      <figure class="plan">
+        <svg class="drawing" viewBox="0 0 440 700" role="img" aria-labelledby="planTitle planDesc">
+          <title id="planTitle">Plan of the Flower Lab cabinet</title>
+          <desc id="planDesc">Front view of the one-pot cabinet. Numbered marks show the light, the water probe, the NPK probe, and the feed bottles.</desc>
+          <defs>
+            <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0.04"/>
+            </linearGradient>
+            <radialGradient id="glow" cx="50%" cy="35%" r="65%">
+              <stop offset="0" stop-color="#f6e7b0" stop-opacity="0.9"/>
+              <stop offset="1" stop-color="#f6e7b0" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="pot" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#d47852"/>
+              <stop offset="1" stop-color="#a84c30"/>
+            </linearGradient>
+            <filter id="soft" x="-30%" y="-10%" width="160%" height="130%">
+              <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#1b2c24" flood-opacity="0.14"/>
+            </filter>
+          </defs>
 
-            <line x1="202" y1="258" x2="202" y2="378" stroke="#245536" stroke-width="3" stroke-linecap="round"/>
-            <ellipse cx="160" cy="308" rx="46" ry="15" fill="#2a6240" transform="rotate(-32 160 308)"/>
-            <ellipse cx="246" cy="298" rx="48" ry="16" fill="#2f6b46" transform="rotate(26 246 298)"/>
-            <ellipse cx="178" cy="268" rx="32" ry="13" fill="#3c8156" transform="rotate(-56 178 268)"/>
-            <ellipse cx="230" cy="260" rx="30" ry="12" fill="#34744c" transform="rotate(46 230 260)"/>
-            <g transform="translate(202 220)">
-              <ellipse cx="0" cy="-13" rx="7" ry="11" fill="#f4eadc"/>
-              <ellipse cx="11" cy="-4" rx="7" ry="11" fill="#f7f1e6" transform="rotate(72)"/>
-              <ellipse cx="7" cy="10" rx="7" ry="11" fill="#f3e6d4" transform="rotate(144)"/>
-              <ellipse cx="-7" cy="10" rx="7" ry="11" fill="#f7f1e6" transform="rotate(216)"/>
-              <ellipse cx="-11" cy="-4" rx="7" ry="11" fill="#f4eadc" transform="rotate(288)"/>
-              <circle r="5" fill="#e0a84a"/>
-            </g>
+          <ellipse cx="210" cy="668" rx="128" ry="12" fill="#1b2c24" opacity="0.1"/>
 
-            <ellipse cx="202" cy="374" rx="34" ry="6" fill="none" stroke="#b7c2b8" stroke-width="1.5"/>
-            <polygon points="168,378 236,378 248,438 156,438" fill="url(#pot)"/>
-            <ellipse cx="202" cy="378" rx="34" ry="7" fill="#d98460"/>
-            <ellipse cx="202" cy="378" rx="26" ry="5" fill="#3a2a22"/>
-            <ellipse cx="202" cy="444" rx="56" ry="8" fill="#6d5648"/>
+          <g filter="url(#soft)">
+            <polygon points="78,48 318,48 362,22 122,22" fill="#3e5649"/>
+            <polygon points="318,48 362,22 362,590 318,616" fill="#24362c"/>
+            <rect x="78" y="48" width="240" height="568" fill="#31483d"/>
+          </g>
 
-            <g>
-              <rect x="128" y="352" width="32" height="13" rx="2" fill="#3d4650"/>
-              <text x="133" y="362" fill="#f4eadc" font-size="8" font-family="Avenir Next, Segoe UI, sans-serif">NPK</text>
-              <line x1="136" y1="365" x2="168" y2="418" stroke="#9aa6b0" stroke-width="1.7" stroke-linecap="round"/>
-              <line x1="144" y1="365" x2="178" y2="424" stroke="#9aa6b0" stroke-width="1.7" stroke-linecap="round"/>
-              <line x1="152" y1="365" x2="188" y2="416" stroke="#9aa6b0" stroke-width="1.7" stroke-linecap="round"/>
-            </g>
+          <rect x="96" y="68" width="204" height="420" fill="#16241f"/>
+          <rect x="118" y="86" width="160" height="12" rx="6" fill="#f4e6b4"/>
+          <ellipse cx="198" cy="148" rx="82" ry="36" fill="url(#glow)"/>
 
-            <line x1="250" y1="348" x2="230" y2="416" stroke="#a89884" stroke-width="2.2" stroke-linecap="round"/>
-            <circle cx="228" cy="420" r="3" fill="#c4623e"/>
+          <line x1="198" y1="286" x2="198" y2="418" stroke="#245536" stroke-width="3.2" stroke-linecap="round"/>
+          <ellipse cx="150" cy="340" rx="52" ry="17" fill="#2a6240" transform="rotate(-30 150 340)"/>
+          <ellipse cx="248" cy="328" rx="54" ry="18" fill="#2f6b46" transform="rotate(24 248 328)"/>
+          <ellipse cx="170" cy="292" rx="36" ry="14" fill="#3c8156" transform="rotate(-54 170 292)"/>
+          <ellipse cx="228" cy="284" rx="34" ry="13" fill="#34744c" transform="rotate(44 228 284)"/>
+          <ellipse cx="198" cy="268" rx="22" ry="12" fill="#4d9464"/>
+          <g transform="translate(198 236)">
+            <ellipse cx="0" cy="-15" rx="8" ry="13" fill="#f4eadc"/>
+            <ellipse cx="13" cy="-5" rx="8" ry="13" fill="#f7f1e6" transform="rotate(72)"/>
+            <ellipse cx="8" cy="11" rx="8" ry="13" fill="#f3e6d4" transform="rotate(144)"/>
+            <ellipse cx="-8" cy="11" rx="8" ry="13" fill="#f7f1e6" transform="rotate(216)"/>
+            <ellipse cx="-13" cy="-5" rx="8" ry="13" fill="#f4eadc" transform="rotate(288)"/>
+            <circle r="6" fill="#e0a84a"/>
+          </g>
 
-            <rect x="102" y="76" width="200" height="378" fill="url(#glass)"/>
-            <rect x="102" y="454" width="200" height="84" fill="#283e34"/>
-            <line x1="202" y1="468" x2="202" y2="522" stroke="#3e5649"/>
-            <circle cx="152" cy="494" r="3" fill="#7dcea0"/>
-            <rect x="108" y="554" width="20" height="8" fill="#1a2822"/>
-            <rect x="274" y="554" width="20" height="8" fill="#1a2822"/>
-          </svg>
+          <path d="M292 108 C 300 200, 292 320, 246 404" fill="none" stroke="#c9d4cc" stroke-width="1.7" stroke-linecap="round"/>
+          <ellipse cx="198" cy="412" rx="40" ry="8" fill="none" stroke="#b7c2b8" stroke-width="1.7"/>
+          <circle cx="178" cy="418" r="2" fill="#8eb8cc"/>
+          <circle cx="214" cy="420" r="1.6" fill="#8eb8cc"/>
 
-          <ol class="zones">
-            <li>
-              <span class="n">01</span>
-              <div>
-                <strong>Hood</strong>
-                <p>Light, on a clock.</p>
-              </div>
-            </li>
-            <li>
-              <span class="n">02</span>
-              <div>
-                <strong>Bay</strong>
-                <p>One pot. A moisture probe, and an NPK probe in the soil.</p>
-              </div>
-            </li>
-            <li>
-              <span class="n">03</span>
-              <div>
-                <strong>Base</strong>
-                <p>Water, A, and B on one side. The Pi, closed in, on the other.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <figcaption>About 40 cm wide and 70 cm tall. The NPK probe sits in the pot.</figcaption>
+          <polygon points="158,418 238,418 252,492 144,492" fill="url(#pot)"/>
+          <ellipse cx="198" cy="418" rx="40" ry="9" fill="#d98460"/>
+          <ellipse cx="198" cy="418" rx="30" ry="6" fill="#3a2a22"/>
+          <ellipse cx="198" cy="500" rx="64" ry="10" fill="#6d5648"/>
+          <ellipse cx="198" cy="496" rx="56" ry="6" fill="#8a7262"/>
+
+          <g>
+            <rect x="112" y="388" width="36" height="15" rx="2" fill="#3d4650"/>
+            <text x="118" y="399" fill="#f4eadc" font-size="9" font-family="Avenir Next, Segoe UI, sans-serif">NPK</text>
+            <line x1="122" y1="403" x2="156" y2="468" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="130" y1="403" x2="166" y2="476" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="138" y1="403" x2="176" y2="466" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
+          </g>
+
+          <line x1="262" y1="372" x2="236" y2="458" stroke="#a89884" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="234" cy="462" r="3.4" fill="#c4623e"/>
+
+          <rect x="96" y="68" width="204" height="420" fill="url(#glass)"/>
+          <rect x="108" y="80" width="5" height="220" rx="2" fill="#ffffff" opacity="0.16"/>
+
+          <rect x="96" y="500" width="204" height="96" fill="#283e34"/>
+          <line x1="198" y1="516" x2="198" y2="580" stroke="#3e5649"/>
+          <circle cx="146" cy="548" r="3.5" fill="#7dcea0"/>
+          <g transform="translate(214,528)">
+            <rect width="14" height="28" rx="2" fill="#d5e6ee"/>
+            <rect x="20" width="14" height="28" rx="2" fill="#e7c98a"/>
+            <rect x="40" width="14" height="28" rx="2" fill="#c9d7a8"/>
+          </g>
+
+          <rect x="100" y="616" width="24" height="8" fill="#1a2822"/>
+          <rect x="272" y="616" width="24" height="8" fill="#1a2822"/>
+
+          <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="13" fill="#faf7f1">
+            <circle cx="292" cy="92" r="11" fill="#c4623e"/>
+            <text x="288" y="96">1</text>
+            <circle cx="286" cy="360" r="11" fill="#c4623e"/>
+            <text x="282" y="364">2</text>
+            <circle cx="108" cy="376" r="11" fill="#c4623e"/>
+            <text x="104" y="380">3</text>
+            <circle cx="286" cy="542" r="11" fill="#c4623e"/>
+            <text x="282" y="546">4</text>
+          </g>
+        </svg>
       </figure>
-    </section>
-  </div>
 
-  <section class="band">
-    <div class="wrap">
-      <p class="eyebrow">Goals</p>
-      <h2>Three jobs.</h2>
-      <div class="goals">
-        <article class="card">
-          <p class="eyebrow">Light</p>
-          <h3>Keep the day.</h3>
-          <p>You set hours and brightness. The hood holds that schedule, and backs off if the bay gets too warm.</p>
-        </article>
-        <article class="card">
-          <p class="eyebrow">Water</p>
-          <h3>A small drink.</h3>
-          <p>You set how moist the soil should stay. The cabinet waters, then stops if the soil is wet, the tank is low, or the day’s cap is hit.</p>
-        </article>
-        <article class="card">
-          <p class="eyebrow">Nutrients</p>
-          <h3>Read the soil.</h3>
-          <p>The NPK probe reports nitrogen, phosphorus, and potassium. When a reading falls short, the cabinet doses A or B. It does not feed when the soil is already in range.</p>
-        </article>
+      <article class="note left n3">
+        <span class="num">3</span>
+        <h2>NPK</h2>
+        <p>A three-prong probe in the pot reads nitrogen, phosphorus, and potassium.</p>
+      </article>
+
+      <article class="note n4">
+        <span class="num">4</span>
+        <h2>Feed</h2>
+        <p>When a reading falls short, the cabinet doses A or B. It does not feed when the soil is already in range.</p>
+      </article>
+
+      <div class="block">
+        <span>Flower Lab</span>
+        <span>One pot · about 40 × 70 cm</span>
+        <span>Pi stays in the dry side</span>
       </div>
     </div>
-  </section>
 
-  <div class="wrap">
-    <footer>
-      <span>Flower Lab</span>
-      <span>One pot · a Raspberry Pi in the cabinet · nothing leaves the room</span>
-    </footer>
+    <footer>Nothing leaves the room. The page you use lives on the Raspberry Pi.</footer>
   </div>
 </body>
 </html>
