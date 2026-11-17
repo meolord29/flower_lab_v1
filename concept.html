@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flower Lab is a tabletop cabinet for one plant. It lights the day, waters when the soil is dry, and feeds only when the soil is short.">
+  <meta name="description" content="Flower Lab on a table: one plant, a drip line fed by three bottles, soil probes, a small computer, and an ethernet cable to a nearby switch.">
   <title>Flower Lab</title>
   <style>
     :root {
@@ -29,7 +29,7 @@
       line-height: 1.5;
     }
 
-    h1, h2, h3 {
+    h1, h2 {
       font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
       font-weight: 500;
       letter-spacing: -0.03em;
@@ -37,7 +37,7 @@
     }
 
     .wrap {
-      width: min(1180px, calc(100% - 2rem));
+      width: min(1240px, calc(100% - 1.5rem));
       margin: 0 auto;
     }
 
@@ -60,20 +60,20 @@
 
     h1 {
       margin: 0.4rem 0 0.6rem;
-      font-size: clamp(2.8rem, 6vw, 4.8rem);
-      max-width: 11ch;
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      max-width: 14ch;
     }
 
     .intro {
-      max-width: 36rem;
-      margin: 0 0 1.2rem;
+      max-width: 40rem;
+      margin: 0 0 1.1rem;
       color: var(--green);
-      font-size: 1.15rem;
+      font-size: 1.12rem;
     }
 
     .sheet {
       margin: 0;
-      padding: 0.6rem 0.6rem 0.9rem;
+      padding: 0.55rem;
       background: var(--sheet);
       border: 1px solid var(--line);
       outline: 1px solid var(--line);
@@ -83,7 +83,7 @@
 
     .drawing {
       width: 100%;
-      min-width: 920px;
+      min-width: 1180px;
       height: auto;
       display: block;
     }
@@ -106,24 +106,14 @@
       border-top: 1px solid var(--ink);
     }
 
-    .job h2 {
-      margin: 0 0 0.35rem;
-      font-size: 1.55rem;
-    }
-
-    .job p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    .job h2 { margin: 0 0 0.35rem; font-size: 1.5rem; }
+    .job p { margin: 0; color: var(--muted); font-size: 0.95rem; }
 
     footer {
       padding: 1.4rem 0 1.8rem;
       color: var(--muted);
       font-size: 0.85rem;
     }
-
-    footer a { color: inherit; }
 
     @media (max-width: 800px) {
       .jobs { grid-template-columns: 1fr 1fr; }
@@ -144,15 +134,15 @@
     </header>
 
     <h1>One plant, in a box on the table.</h1>
-    <p class="intro">The hood keeps the day. The soil asks for water. Feed is added only when the pot is short, and only into water that is already on its way up.</p>
+    <p class="intro">Feed climbs a single tube to the drip ring. Two probes sit in the soil. A small computer in the dry side runs the box, and a cable crosses the table to a switch.</p>
 
     <figure class="sheet">
-      <svg class="drawing" viewBox="0 0 1200 860" role="img" aria-labelledby="lookTitle lookDesc">
-        <title id="lookTitle">Flower Lab cabinet on a table</title>
-        <desc id="lookDesc">A compact cabinet sitting on a wooden table. A clear front shows one flowering plant, a light hood, a drip ring, probes in the soil, and three bottles in the base.</desc>
+      <svg class="drawing" viewBox="0 0 1560 1080" role="img" aria-labelledby="lookTitle lookDesc">
+        <title id="lookTitle">Flower Lab on a table, opened</title>
+        <desc id="lookDesc">A tabletop cabinet with the base open. Three bottles, three pumps, and one drip line. A flat moisture probe and a three-prong nutrient probe in the soil, cabled to a small computer. An ethernet cable runs from that computer to a switch on the same table.</desc>
         <defs>
           <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e4d2b4"/>
+            <stop offset="0" stop-color="#e6d4b6"/>
             <stop offset="1" stop-color="#c9ae86"/>
           </linearGradient>
           <linearGradient id="woodEdge" x1="0" y1="0" x2="0" y2="1">
@@ -160,158 +150,233 @@
             <stop offset="1" stop-color="#8d6848"/>
           </linearGradient>
           <linearGradient id="pot" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#d88862"/>
+            <stop offset="0" stop-color="#e09470"/>
             <stop offset="1" stop-color="#a34c30"/>
           </linearGradient>
-          <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#ffffff" stop-opacity="0.2"/>
-            <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.03"/>
-            <stop offset="1" stop-color="#ffffff" stop-opacity="0.12"/>
+          <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#5a4032"/>
+            <stop offset="1" stop-color="#3a2820"/>
           </linearGradient>
-          <radialGradient id="glow" cx="50%" cy="30%" r="65%">
-            <stop offset="0" stop-color="#f8e7b0" stop-opacity="0.95"/>
+          <radialGradient id="glow" cx="50%" cy="20%" r="70%">
+            <stop offset="0" stop-color="#f8e7b0" stop-opacity="0.9"/>
             <stop offset="1" stop-color="#f8e7b0" stop-opacity="0"/>
           </radialGradient>
-          <filter id="shadow" x="-20%" y="-10%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#1b2c24" flood-opacity="0.16"/>
-          </filter>
+          <linearGradient id="cable" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#3d6f9a"/>
+            <stop offset="0.5" stop-color="#7eafd4"/>
+            <stop offset="1" stop-color="#3d6f9a"/>
+          </linearGradient>
         </defs>
 
-        <rect x="0" y="0" width="1200" height="620" fill="#f6f1e8"/>
-        <rect x="0" y="560" width="1200" height="300" fill="#f3eee4"/>
-
-        <!-- wall and table -->
-        <line x1="0" y1="560" x2="1200" y2="560" stroke="#e4dccb"/>
-        <polygon points="40,590 1160,590 1100,730 100,730" fill="url(#wood)"/>
-        <polygon points="100,730 1100,730 1072,768 128,768" fill="url(#woodEdge)"/>
-        <g stroke="#a68456" stroke-width="1" opacity="0.35">
-          <path d="M80 620 H1120"/>
-          <path d="M90 650 H1110"/>
-          <path d="M110 680 H1090"/>
+        <rect width="1560" height="760" fill="#f6f1e8"/>
+        <line x1="0" y1="748" x2="1560" y2="748" stroke="#e4dccb"/>
+        <polygon points="24,790 1536,790 1476,940 84,940" fill="url(#wood)"/>
+        <polygon points="84,940 1476,940 1448,978 112,978" fill="url(#woodEdge)"/>
+        <g stroke="#a68456" stroke-width="1" opacity="0.28">
+          <path d="M70 830 H1490"/>
+          <path d="M80 868 H1480"/>
+          <path d="M96 906 H1464"/>
         </g>
-        <rect x="150" y="768" width="28" height="70" fill="#8d6848"/>
-        <rect x="1022" y="768" width="28" height="70" fill="#8d6848"/>
-        <ellipse cx="600" cy="612" rx="250" ry="16" fill="#1b2c24" opacity="0.08"/>
+        <rect x="130" y="978" width="26" height="78" fill="#8d6848"/>
+        <rect x="1404" y="978" width="26" height="78" fill="#8d6848"/>
 
-        <g filter="url(#shadow)">
-          <!-- top and side of the cabinet -->
-          <polygon points="318,168 742,168 828,118 404,118" fill="#4a6556"/>
-          <polygon points="742,168 828,118 828,612 742,662" fill="#24362c"/>
-          <rect x="318" y="168" width="424" height="494" fill="#31483d"/>
-        </g>
+        <!-- cabinet shell -->
+        <polygon points="150,78 760,78 820,42 210,42" fill="#4a6556"/>
+        <polygon points="760,78 820,42 820,690 760,726" fill="#24362c"/>
+        <rect x="150" y="78" width="610" height="648" fill="#31483d"/>
+        <rect x="172" y="100" width="566" height="360" fill="#17241f"/>
 
-        <!-- side panel, closed, dry -->
-        <polygon points="754,188 812,156 812,590 754,622" fill="#2a3f34"/>
-        <polygon points="768,230 800,210 800,560 768,580" fill="#24362c"/>
-
-        <!-- clear front -->
-        <rect x="346" y="196" width="368" height="300" fill="#17241f"/>
-        <rect x="390" y="214" width="280" height="12" rx="6" fill="#f6e7b4"/>
-        <ellipse cx="530" cy="268" rx="120" ry="48" fill="url(#glow)"/>
+        <!-- light -->
+        <rect x="230" y="118" width="420" height="14" rx="7" fill="#f6e7b4"/>
+        <ellipse cx="440" cy="168" rx="150" ry="46" fill="url(#glow)"/>
+        <text x="188" y="64" fill="#5c6b62" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">light, on a schedule</text>
 
         <!-- plant -->
         <g>
-          <line x1="530" y1="318" x2="530" y2="430" stroke="#245536" stroke-width="4" stroke-linecap="round"/>
-          <ellipse cx="456" cy="372" rx="62" ry="20" fill="#245c3c" transform="rotate(-32 456 372)"/>
-          <ellipse cx="608" cy="360" rx="66" ry="21" fill="#2f6b46" transform="rotate(26 608 360)"/>
-          <ellipse cx="478" cy="332" rx="44" ry="16" fill="#3c8156" transform="rotate(-58 478 332)"/>
-          <ellipse cx="586" cy="322" rx="42" ry="15" fill="#34744c" transform="rotate(46 586 322)"/>
-          <ellipse cx="512" cy="300" rx="28" ry="14" fill="#4d9464" transform="rotate(-12 512 300)"/>
-          <ellipse cx="548" cy="308" rx="24" ry="12" fill="#3f8a58" transform="rotate(20 548 308)"/>
-          <g transform="translate(530 286)">
-            <ellipse cx="0" cy="-18" rx="9" ry="15" fill="#f4eadc"/>
-            <ellipse cx="15" cy="-6" rx="9" ry="15" fill="#f7f1e6" transform="rotate(72)"/>
-            <ellipse cx="9" cy="13" rx="9" ry="15" fill="#f3e6d4" transform="rotate(144)"/>
-            <ellipse cx="-9" cy="13" rx="9" ry="15" fill="#f7f1e6" transform="rotate(216)"/>
-            <ellipse cx="-15" cy="-6" rx="9" ry="15" fill="#f4eadc" transform="rotate(288)"/>
-            <circle r="6.5" fill="#e0a84a"/>
-          </g>
-          <g transform="translate(592 318)" opacity="0.9">
-            <ellipse cx="0" cy="-8" rx="5" ry="9" fill="#f7f1e6"/>
-            <circle r="3" fill="#e7c98a"/>
+          <line x1="400" y1="250" x2="400" y2="392" stroke="#245536" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="318" cy="330" rx="70" ry="22" fill="#245c3c" transform="rotate(-30 318 330)"/>
+          <ellipse cx="488" cy="318" rx="74" ry="22" fill="#2f6b46" transform="rotate(24 488 318)"/>
+          <ellipse cx="346" cy="286" rx="46" ry="16" fill="#3c8156" transform="rotate(-56 346 286)"/>
+          <ellipse cx="458" cy="274" rx="44" ry="15" fill="#34744c" transform="rotate(44 458 274)"/>
+          <ellipse cx="382" cy="252" rx="30" ry="14" fill="#4d9464"/>
+          <g transform="translate(400 228)">
+            <ellipse cx="0" cy="-16" rx="8" ry="14" fill="#f4eadc"/>
+            <ellipse cx="14" cy="-5" rx="8" ry="14" fill="#f7f1e6" transform="rotate(72)"/>
+            <ellipse cx="8" cy="12" rx="8" ry="14" fill="#f3e6d4" transform="rotate(144)"/>
+            <ellipse cx="-8" cy="12" rx="8" ry="14" fill="#f7f1e6" transform="rotate(216)"/>
+            <ellipse cx="-14" cy="-5" rx="8" ry="14" fill="#f4eadc" transform="rotate(288)"/>
+            <circle r="6" fill="#e0a84a"/>
           </g>
         </g>
 
-        <!-- drip -->
-        <path d="M688 230 C 700 300, 640 360, 574 408" fill="none" stroke="#c5d4cc" stroke-width="2" stroke-linecap="round"/>
-        <ellipse cx="530" cy="414" rx="46" ry="9" fill="none" stroke="#c5d4cc" stroke-width="2"/>
-        <circle cx="508" cy="420" r="2.2" fill="#8eb8cc"/>
-        <circle cx="546" cy="422" r="1.7" fill="#8eb8cc"/>
+        <!-- drip ring and falling drops -->
+        <ellipse cx="400" cy="378" rx="58" ry="10" fill="none" stroke="#9bb0b8" stroke-width="3"/>
+        <circle cx="362" cy="386" r="3.2" fill="#7eb8d0"/>
+        <circle cx="400" cy="398" r="2.6" fill="#7eb8d0"/>
+        <circle cx="434" cy="390" r="2.2" fill="#9ec9dc"/>
+        <circle cx="388" cy="412" r="2" fill="#7eb8d0" opacity="0.8"/>
+        <text x="468" y="372" fill="#3d7f96" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">drip ring</text>
 
-        <!-- pot -->
-        <polygon points="472,424 588,424 608,512 452,512" fill="url(#pot)"/>
-        <ellipse cx="530" cy="424" rx="58" ry="12" fill="#e09470"/>
-        <ellipse cx="530" cy="424" rx="42" ry="8" fill="#3a2a22"/>
-        <ellipse cx="478" cy="456" rx="10" ry="4" fill="#ffffff" opacity="0.18"/>
-        <ellipse cx="530" cy="522" rx="86" ry="12" fill="#6d5648"/>
-        <ellipse cx="530" cy="516" rx="76" ry="8" fill="#8a7262"/>
+        <!-- pot, cut so the soil and probe tips show -->
+        <polygon points="312,400 488,400 516,500 284,500" fill="url(#pot)"/>
+        <path d="M312 400 H488 L504 455 H296 Z" fill="url(#soil)"/>
+        <ellipse cx="400" cy="400" rx="88" ry="14" fill="#e09470"/>
+        <ellipse cx="400" cy="400" rx="70" ry="9" fill="#4a3428"/>
+        <ellipse cx="400" cy="508" rx="118" ry="14" fill="#6d5648"/>
+        <ellipse cx="330" cy="448" rx="14" ry="5" fill="#fff" opacity="0.12"/>
 
-        <!-- probes -->
+        <!-- NPK probe: handle and three prongs -->
         <g>
-          <rect x="438" y="392" width="36" height="14" rx="2" fill="#3d4650"/>
-          <text x="444" y="403" fill="#f4eadc" font-size="9" font-family="Avenir Next, Segoe UI, sans-serif">NPK</text>
-          <line x1="448" y1="406" x2="486" y2="478" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="456" y1="406" x2="498" y2="486" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="464" y1="406" x2="510" y2="474" stroke="#9aa6b0" stroke-width="1.8" stroke-linecap="round"/>
+          <rect x="300" y="348" width="22" height="36" rx="3" fill="#2a2e32"/>
+          <rect x="304" y="352" width="14" height="8" rx="1" fill="#4a5158"/>
+          <line x1="306" y1="384" x2="322" y2="468" stroke="#c5ced6" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="311" y1="384" x2="334" y2="476" stroke="#d5dee6" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="316" y1="384" x2="346" y2="466" stroke="#b7c2cc" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M300 352 C 270 340, 230 300, 196 286" fill="none" stroke="#2a2e32" stroke-width="2"/>
+          <text x="168" y="276" fill="#1b2c24" font-size="14" font-family="Iowan Old Style, Palatino, Georgia, serif">NPK</text>
+          <text x="168" y="294" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">three prongs</text>
         </g>
-        <line x1="612" y1="388" x2="576" y2="478" stroke="#a89884" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="572" cy="484" r="4" fill="#c4623e"/>
+
+        <!-- moisture blade -->
+        <g>
+          <path d="M470 360 H492 V430 L481 468 L470 430 Z" fill="#d7e4c8" stroke="#7d9a72" stroke-width="1.2"/>
+          <path d="M476 372 H486 V424 H476 Z" fill="#c5d4b4"/>
+          <path d="M492 368 C 540 360, 600 340, 640 328" fill="none" stroke="#7d9a72" stroke-width="2"/>
+          <text x="548" y="318" fill="#1b2c24" font-size="14" font-family="Iowan Old Style, Palatino, Georgia, serif">Moisture</text>
+          <text x="548" y="336" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">flat blade</text>
+        </g>
 
         <!-- later camera -->
-        <g opacity="0.7">
-          <rect x="662" y="214" width="32" height="20" rx="3" fill="#101814" stroke="#8d8478"/>
-          <circle cx="678" cy="224" r="4.5" fill="#6d7c74"/>
-          <text x="648" y="252" fill="#c9c0b2" font-size="10" font-family="Avenir Next, Segoe UI, sans-serif" letter-spacing="0.08em">LATER</text>
+        <g opacity="0.65">
+          <rect x="668" y="124" width="36" height="22" rx="3" fill="#101814" stroke="#8d8478"/>
+          <circle cx="686" cy="135" r="5" fill="#6d7c74"/>
+          <text x="646" y="164" fill="#c9c0b2" font-size="10" font-family="Avenir Next, Segoe UI, sans-serif">LATER</text>
         </g>
 
-        <rect x="346" y="196" width="368" height="300" fill="url(#glass)"/>
-        <rect x="358" y="208" width="7" height="180" rx="3" fill="#ffffff" opacity="0.16"/>
+        <!-- glass sheen -->
+        <rect x="172" y="100" width="566" height="250" fill="#fff" opacity="0.04"/>
 
-        <!-- base shelf with bottles -->
-        <rect x="346" y="512" width="368" height="128" fill="#283e34"/>
-        <rect x="362" y="528" width="336" height="96" rx="4" fill="#1c2e28"/>
+        <!-- open wet base -->
+        <rect x="172" y="468" width="566" height="236" fill="#1c2e28"/>
+        <line x1="700" y1="468" x2="700" y2="704" stroke="#3e5649" stroke-width="8"/>
+        <text x="188" y="492" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">Wet side, open</text>
+
+        <!-- bottles -->
+        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="12" fill="#1b2c24">
+          <rect x="196" y="508" width="46" height="78" rx="5" fill="#d5e6ee" stroke="#8eb4c4"/>
+          <rect x="208" y="496" width="22" height="14" rx="2" fill="#6d7f74"/>
+          <circle cx="219" cy="548" r="6" fill="none" stroke="#c4623e" stroke-width="1.4"/>
+          <text x="200" y="604">Water</text>
+
+          <rect x="292" y="518" width="40" height="68" rx="5" fill="#f3e2b4" stroke="#d7b36a"/>
+          <rect x="301" y="506" width="22" height="14" rx="2" fill="#6d7f74"/>
+          <text x="306" y="604">A</text>
+
+          <rect x="372" y="518" width="40" height="68" rx="5" fill="#e4efc8" stroke="#b7c98a"/>
+          <rect x="381" y="506" width="22" height="14" rx="2" fill="#6d7f74"/>
+          <text x="386" y="604">B</text>
+        </g>
+
+        <!-- pump heads -->
         <g>
-          <rect x="388" y="546" width="28" height="58" rx="4" fill="#d5e6ee"/>
-          <rect x="394" y="536" width="16" height="12" rx="2" fill="#6d7f74"/>
-          <rect x="448" y="552" width="26" height="52" rx="4" fill="#f3e2b4"/>
-          <rect x="453" y="542" width="16" height="12" rx="2" fill="#6d7f74"/>
-          <rect x="504" y="552" width="26" height="52" rx="4" fill="#e4efc8"/>
-          <rect x="509" y="542" width="16" height="12" rx="2" fill="#6d7f74"/>
+          <g transform="translate(206,618)">
+            <rect width="36" height="28" rx="4" fill="#4e6358"/>
+            <circle cx="18" cy="14" r="9" fill="none" stroke="#c9d4cc" stroke-width="2"/>
+            <circle cx="18" cy="8" r="2" fill="#c9d4cc"/>
+            <circle cx="24" cy="17" r="2" fill="#c9d4cc"/>
+            <circle cx="12" cy="17" r="2" fill="#c9d4cc"/>
+          </g>
+          <g transform="translate(294,618)">
+            <rect width="36" height="28" rx="4" fill="#4e6358"/>
+            <circle cx="18" cy="14" r="9" fill="none" stroke="#c9d4cc" stroke-width="2"/>
+            <circle cx="18" cy="8" r="2" fill="#c9d4cc"/>
+            <circle cx="24" cy="17" r="2" fill="#c9d4cc"/>
+            <circle cx="12" cy="17" r="2" fill="#c9d4cc"/>
+          </g>
+          <g transform="translate(374,618)">
+            <rect width="36" height="28" rx="4" fill="#4e6358"/>
+            <circle cx="18" cy="14" r="9" fill="none" stroke="#c9d4cc" stroke-width="2"/>
+            <circle cx="18" cy="8" r="2" fill="#c9d4cc"/>
+            <circle cx="24" cy="17" r="2" fill="#c9d4cc"/>
+            <circle cx="12" cy="17" r="2" fill="#c9d4cc"/>
+          </g>
         </g>
-        <path d="M402 546 C 430 530, 520 530, 688 400" fill="none" stroke="#c5d4cc" stroke-width="1.4" opacity="0.7"/>
-        <text x="560" y="582" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">Water</text>
-        <text x="612" y="604" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">A</text>
-        <text x="640" y="604" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">B</text>
 
-        <!-- feet -->
-        <rect x="348" y="662" width="36" height="10" fill="#1a2822"/>
-        <rect x="676" y="662" width="36" height="10" fill="#1a2822"/>
+        <!-- tubes: A and B join water, one line rises -->
+        <g fill="none" stroke-linecap="round">
+          <path d="M224 586 V618" stroke="#8eb8cc" stroke-width="3"/>
+          <path d="M312 586 V618" stroke="#d7b36a" stroke-width="2.4"/>
+          <path d="M392 586 V618" stroke="#8aaa62" stroke-width="2.4"/>
+          <path d="M224 646 V678" stroke="#8eb8cc" stroke-width="3.4"/>
+          <path d="M312 646 V668" stroke="#d7b36a" stroke-width="2.4"/>
+          <path d="M392 646 V668" stroke="#8aaa62" stroke-width="2.4"/>
+          <path d="M224 678 H520" stroke="#8eb8cc" stroke-width="4"/>
+          <path d="M520 678 V392 C 520 392, 470 386, 442 386" stroke="#8eb8cc" stroke-width="4"/>
+        </g>
+        <!-- join fittings -->
+        <g fill="#8eb8cc">
+          <polygon points="304,664 320,664 312,676"/>
+          <rect x="306" y="658" width="12" height="3"/>
+          <polygon points="384,664 400,664 392,676"/>
+          <rect x="386" y="658" width="12" height="3"/>
+          <circle cx="224" cy="678" r="4"/>
+          <circle cx="312" cy="678" r="3.5"/>
+          <circle cx="392" cy="678" r="3.5"/>
+        </g>
+        <text x="430" y="668" fill="#d5ddd8" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">A and B join here</text>
+        <text x="528" y="520" fill="#8eb8cc" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">one line up</text>
 
-        <!-- callouts -->
-        <g font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="18" fill="#1b2c24">
-          <text x="72" y="210">Light</text>
-          <text x="72" y="400">The soil</text>
-          <text x="900" y="250">A drink</text>
-          <text x="900" y="520">Feed</text>
+        <!-- sensor cables into the dry side -->
+        <path d="M196 286 H150 V520 H720" fill="none" stroke="#2a2e32" stroke-width="1.6"/>
+        <path d="M640 328 H700 V360 H760" fill="none" stroke="#7d9a72" stroke-width="1.6"/>
+
+        <!-- dry compartment, door open -->
+        <rect x="760" y="188" width="250" height="516" rx="4" fill="#24362c" stroke="#4a6556"/>
+        <text x="778" y="214" fill="#d5ddd8" font-size="13" font-family="Iowan Old Style, Palatino, Georgia, serif">Dry side</text>
+        <rect x="786" y="248" width="150" height="96" rx="3" fill="#1f6b45" stroke="#163c2c"/>
+        <rect x="800" y="262" width="28" height="16" rx="1" fill="#163c2c"/>
+        <rect x="836" y="264" width="40" height="22" rx="1" fill="#174e34"/>
+        <circle cx="908" cy="270" r="4" fill="#7dcea0"/>
+        <rect x="920" y="286" width="16" height="12" rx="1" fill="#c9d4cc"/>
+        <text x="800" y="328" fill="#d7e8dc" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">computer</text>
+        <text x="786" y="366" fill="#c9c0b2" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">collects and controls</text>
+
+        <!-- USB ethernet adapter -->
+        <rect x="936" y="278" width="28" height="22" rx="2" fill="#3d4650"/>
+        <rect x="958" y="282" width="16" height="14" rx="1" fill="#d7e1ea"/>
+        <rect x="962" y="286" width="8" height="6" fill="#3d6f9a"/>
+        <text x="786" y="392" fill="#7eafd4" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">adapter on the computer</text>
+
+        <!-- grommet and ethernet across the table -->
+        <circle cx="992" cy="420" r="8" fill="#1a2822" stroke="#6d7f74"/>
+        <path d="M974 292 H1004 V420 C 1040 430, 1080 520, 1120 700 C 1160 760, 1220 748, 1288 732" fill="none" stroke="url(#cable)" stroke-width="5" stroke-linecap="round"/>
+        <rect x="966" y="284" width="14" height="10" rx="1" fill="#e7eef4"/>
+        <rect x="1276" y="724" width="16" height="10" rx="1" fill="#e7eef4"/>
+        <text x="1040" y="640" fill="#3d6f9a" font-size="13" font-family="Avenir Next, Segoe UI, sans-serif">ethernet</text>
+
+        <!-- thin control wires toward the pumps -->
+        <path d="M786 300 H740 V640 H250" fill="none" stroke="#9a7340" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.8"/>
+
+        <!-- switch on the table -->
+        <g>
+          <rect x="1288" y="700" width="168" height="52" rx="4" fill="#2c3338" stroke="#1b2024"/>
+          <rect x="1300" y="716" width="14" height="12" rx="1" fill="#1b2024"/>
+          <rect x="1318" y="716" width="14" height="12" rx="1" fill="#1b2024" stroke="#7eafd4"/>
+          <rect x="1336" y="716" width="14" height="12" rx="1" fill="#1b2024"/>
+          <rect x="1354" y="716" width="14" height="12" rx="1" fill="#1b2024"/>
+          <rect x="1372" y="716" width="14" height="12" rx="1" fill="#1b2024"/>
+          <circle cx="1306" cy="736" r="2" fill="#7dcea0"/>
+          <circle cx="1324" cy="736" r="2" fill="#7dcea0"/>
+          <text x="1400" y="732" fill="#d5ddd8" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">switch</text>
+          <path d="M1456 726 H1528" stroke="#3d6f9a" stroke-width="4" stroke-linecap="round"/>
+          <text x="1290" y="774" fill="#5c6b62" font-size="12" font-family="Avenir Next, Segoe UI, sans-serif">on the same table</text>
         </g>
-        <g font-family="Avenir Next, Segoe UI, sans-serif" font-size="13" fill="#5c6b62">
-          <text x="72" y="232">Hours and brightness,</text>
-          <text x="72" y="250">held above the leaves.</text>
-          <text x="72" y="422">Moisture, and nitrogen,</text>
-          <text x="72" y="440">phosphorus, potassium.</text>
-          <text x="900" y="272">A small pour when</text>
-          <text x="900" y="290">the pot is dry.</text>
-          <text x="900" y="542">A and B only if a</text>
-          <text x="900" y="560">reading is short.</text>
-        </g>
-        <g stroke="#c4623e" stroke-width="1.2" fill="none">
-          <path d="M168 198 H300"/>
-          <path d="M150 408 H360"/>
-          <path d="M900 242 H760"/>
-          <path d="M900 528 H720"/>
-        </g>
+
+        <rect x="188" y="726" width="34" height="12" fill="#1a2822"/>
+        <rect x="690" y="726" width="34" height="12" fill="#1a2822"/>
+        <ellipse cx="470" cy="748" rx="280" ry="12" fill="#1b2c24" opacity="0.08"/>
       </svg>
-      <figcaption>As it sits on a table. Clear front, one plant, three bottles in the base. A camera can take the corner later.</figcaption>
+      <figcaption>Base open: water, A, and B meet, then one line rises to the drip ring. Probe cables end at the computer. The blue cable leaves that computer and plugs into the switch beside the box.</figcaption>
     </figure>
 
     <div class="jobs">
@@ -321,15 +386,15 @@
       </article>
       <article class="job">
         <h2>Water</h2>
-        <p>A dry pot gets a small drink. The cabinet waits, checks, and stops before it floods.</p>
+        <p>A dry pot gets a small drink from the ring. The cabinet waits, checks, and stops before it floods.</p>
       </article>
       <article class="job">
         <h2>Feed</h2>
-        <p>It reads the soil. A and B go up only when a reading is short, carried in the water.</p>
+        <p>The prongs read the soil. A and B join the water only when a reading is short.</p>
       </article>
       <article class="job">
         <h2>Record</h2>
-        <p>What it saw and what it did is sent on. The box still tends the plant if that send fails.</p>
+        <p>The computer in the dry side collects and decides. The cable on the table carries that record to the switch.</p>
       </article>
     </div>
 
