@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flower Lab system diagram: one plant, peristaltic pumps, and an Orange Pi Zero 3 that switches 12 V loads through a PCA9685 and reads probes over I2C and USB.">
+  <meta name="description" content="Flower Lab system diagram: one plant, peristaltic pumps, an Orange Pi Zero 3, and a later camera that runs YOLO for leaf color and bloom tracking.">
   <title>Flower Lab — system diagram</title>
   <style>
     :root {
@@ -131,12 +131,12 @@
     <figure class="sheet">
       <svg class="drawing" viewBox="0 0 1240 860" role="img" aria-labelledby="dTitle dDesc">
         <title id="dTitle">Flower Lab system diagram</title>
-        <desc id="dDesc">A plant in a pot, fed by three peristaltic pumps through one drip line. An Orange Pi Zero 3 reads moisture on an ADS1115, NPK over USB-RS485, and a float and temperature on GPIO. A PCA9685 times a MOSFET board that switches a separate 12 volt supply.</desc>
+        <desc id="dDesc">A plant in a pot, fed by three peristaltic pumps through one drip line. An Orange Pi Zero 3 reads moisture on an ADS1115, NPK over USB-RS485, and a float and temperature on GPIO. A PCA9685 times a MOSFET board that switches a separate 12 volt supply. Later, a CSI camera on the same board runs a small YOLO model to track leaf color and bloom.</desc>
 
         <rect x="16" y="16" width="360" height="700" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
         <rect x="400" y="16" width="360" height="700" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
         <rect x="784" y="16" width="440" height="470" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
-        <rect x="784" y="504" width="440" height="212" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
+        <rect x="784" y="504" width="440" height="236" rx="8" fill="#f7f3ea" stroke="#d5ccbb"/>
 
         <g font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="22" fill="#1b2c24">
           <text x="36" y="48">Wet side</text>
@@ -218,6 +218,15 @@
         <circle cx="700" cy="86" r="5" fill="#c4623e"/>
         <text x="628" y="132" fill="#5c6b62" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">temp · GPIO</text>
 
+        <g opacity="0.85">
+          <rect x="424" y="150" width="44" height="26" rx="3" fill="#101814" stroke="#9a7340"/>
+          <circle cx="446" cy="163" r="6" fill="none" stroke="#d5ccbb" stroke-width="1.4"/>
+          <circle cx="446" cy="163" r="2.2" fill="#9a7340"/>
+          <text x="474" y="160" fill="#9a7340" font-size="10" font-family="Avenir Next, Segoe UI, sans-serif">later</text>
+          <text x="424" y="192" fill="#5c6b62" font-size="11" font-family="Avenir Next, Segoe UI, sans-serif">camera · CSI</text>
+        </g>
+        <path d="M468 163 H770 V78" fill="none" stroke="#9a7340" stroke-width="1.4" stroke-dasharray="1 4" opacity="0.8"/>
+
         <g>
           <line x1="580" y1="250" x2="580" y2="390" stroke="#245536" stroke-width="3" stroke-linecap="round"/>
           <ellipse cx="528" cy="310" rx="48" ry="15" fill="#2a6240" transform="rotate(-28 528 310)"/>
@@ -292,6 +301,7 @@
           <text x="808" y="410" fill="#5c6b62">I2C is four wires: SDA, SCL, 3.3 V, GND.</text>
           <text x="808" y="430" fill="#5c6b62">Header UART stays free. Common ground.</text>
           <text x="808" y="450" fill="#c4623e">12 V never touches a Pi pin.</text>
+          <text x="808" y="470" fill="#9a7340">Later: YOLO on this board, via CSI.</text>
         </g>
 
         <!-- I2C on the dry side only. PWM gates hop from PCA9685 to the MOSFET. -->
@@ -336,6 +346,7 @@
           <text x="822" y="634" fill="#5c6b62">float, and each pump pulse.</text>
           <text x="822" y="666" fill="#5c6b62">The server collects and aggregates.</text>
           <text x="822" y="692" fill="#5c6b62">The cabinet still acts if the POST fails.</text>
+          <text x="822" y="714" fill="#9a7340">Later: leaf color, spots, bloom stage.</text>
         </g>
       </svg>
 
@@ -345,7 +356,7 @@
         <li><i class="signal"></i>Signal</li>
         <li><i class="logic"></i>POST</li>
       </ul>
-      <figcaption>Dose by pump time, then wait and read moisture again. The float switch stops a dry run. NPK only decides whether A or B pulses — it is not a tight loop. If the soil is already in range, neither pump runs.</figcaption>
+      <figcaption>Dose by pump time, then wait and read moisture again. The float switch stops a dry run. NPK only decides whether A or B pulses — it is not a tight loop. If the soil is already in range, neither pump runs. Later, a CSI camera on the Zero 3 runs a small YOLO model over the leaves: yellowing, browning, spots, and bloom stage. A frame every few minutes, not live video — the board has no NPU. Those events are posted too. The camera does not dose.</figcaption>
     </figure>
 
     <footer>Flower Lab · one pot · Orange Pi Zero 3 · about 40 × 70 cm</footer>
